@@ -1,0 +1,24 @@
+{
+  "summary": "Returns the number of uncles in a block from a block matching the given block hash.",
+  "description": "",
+  "name": "eth_getUncleCountByBlockHash",
+  "params": [
+    {
+      "summary": "",
+      "description": "Block hash",
+      "name": "block_hash",
+      "schema": {
+        "$ref": "#/$defs/hash32"
+      },
+      "required": false,
+      "deprecated": false
+    }
+  ],
+  "defs": {
+    "hash32": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$",
+      "title": "32 byte hex value"
+    }
+  }
+}

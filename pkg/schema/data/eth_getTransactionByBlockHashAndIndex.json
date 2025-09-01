@@ -1,0 +1,39 @@
+{
+  "summary": "Returns information about a transaction by block hash and transaction index position.",
+  "description": "",
+  "name": "eth_getTransactionByBlockHashAndIndex",
+  "params": [
+    {
+      "summary": "",
+      "description": "Block hash",
+      "name": "block_hash",
+      "schema": {
+        "$ref": "#/$defs/hash32"
+      },
+      "required": true,
+      "deprecated": false
+    },
+    {
+      "summary": "",
+      "description": "Transaction index",
+      "name": "transaction_index",
+      "schema": {
+        "$ref": "#/$defs/uint"
+      },
+      "required": true,
+      "deprecated": false
+    }
+  ],
+  "defs": {
+    "hash32": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$",
+      "title": "32 byte hex value"
+    },
+    "uint": {
+      "type": "string",
+      "pattern": "^0x(0|[1-9a-f][0-9a-f]*)$",
+      "title": "hex encoded unsigned integer"
+    }
+  }
+}

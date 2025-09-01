@@ -1,0 +1,7 @@
+{
+  "summary": "Returns the current maxPriorityFeePerGas per gas in wei.",
+  "description": "",
+  "name": "eth_maxPriorityFeePerGas",
+  "params": [],
+  "defs": null
+}

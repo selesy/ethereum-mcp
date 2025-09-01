@@ -1,0 +1,24 @@
+{
+  "summary": "Uninstalls a filter with given id.",
+  "description": "",
+  "name": "eth_uninstallFilter",
+  "params": [
+    {
+      "summary": "",
+      "description": "Filter identifier",
+      "name": "filter_identifier",
+      "schema": {
+        "$ref": "#/$defs/uint"
+      },
+      "required": true,
+      "deprecated": false
+    }
+  ],
+  "defs": {
+    "uint": {
+      "type": "string",
+      "pattern": "^0x(0|[1-9a-f][0-9a-f]*)$",
+      "title": "hex encoded unsigned integer"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "summary": "Returns the information about a transaction requested by transaction hash.",
+  "description": "",
+  "name": "eth_getTransactionByHash",
+  "params": [
+    {
+      "summary": "",
+      "description": "Transaction hash",
+      "name": "transaction_hash",
+      "schema": {
+        "$ref": "#/$defs/hash32"
+      },
+      "required": true,
+      "deprecated": false
+    }
+  ],
+  "defs": {
+    "hash32": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$",
+      "title": "32 byte hex value"
+    }
+  }
+}

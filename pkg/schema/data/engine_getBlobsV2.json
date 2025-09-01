@@ -1,0 +1,27 @@
+{
+  "summary": "Fetch blobs from the blob mempool",
+  "description": "",
+  "name": "engine_getBlobsV2",
+  "params": [
+    {
+      "summary": "",
+      "description": "Blob versioned hashes",
+      "name": "blob_versioned_hashes",
+      "schema": {
+        "items": {
+          "$ref": "#/$defs/hash32"
+        },
+        "type": "array"
+      },
+      "required": true,
+      "deprecated": false
+    }
+  ],
+  "defs": {
+    "hash32": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$",
+      "title": "32 byte hex value"
+    }
+  }
+}

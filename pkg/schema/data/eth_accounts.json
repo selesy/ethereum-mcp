@@ -1,0 +1,7 @@
+{
+  "summary": "Returns a list of addresses owned by client.",
+  "description": "",
+  "name": "eth_accounts",
+  "params": [],
+  "defs": null
+}

@@ -1,0 +1,7 @@
+{
+  "summary": "Returns the client coinbase address.",
+  "description": "",
+  "name": "eth_coinbase",
+  "params": [],
+  "defs": null
+}

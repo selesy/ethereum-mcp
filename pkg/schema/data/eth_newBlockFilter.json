@@ -1,0 +1,7 @@
+{
+  "summary": "Creates a filter in the node, allowing for later polling. Registers client interest in new blocks, and returns an identifier.",
+  "description": "",
+  "name": "eth_newBlockFilter",
+  "params": [],
+  "defs": null
+}

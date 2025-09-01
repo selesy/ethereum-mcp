@@ -1,0 +1,7 @@
+{
+  "summary": "Returns an array of recent bad blocks that the client has seen on the network.",
+  "description": "",
+  "name": "debug_getBadBlocks",
+  "params": [],
+  "defs": null
+}

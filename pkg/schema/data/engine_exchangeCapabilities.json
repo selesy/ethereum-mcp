@@ -1,0 +1,21 @@
+{
+  "summary": "Exchanges list of supported Engine API methods",
+  "description": "",
+  "name": "engine_exchangeCapabilities",
+  "params": [
+    {
+      "summary": "",
+      "description": "Consensus client methods",
+      "name": "consensus_client_methods",
+      "schema": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "required": true,
+      "deprecated": false
+    }
+  ],
+  "defs": {}
+}

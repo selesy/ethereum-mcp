@@ -1,0 +1,109 @@
+{
+  "summary": "Returns an array of all logs matching the specified filter.",
+  "description": "",
+  "name": "eth_getLogs",
+  "params": [
+    {
+      "summary": "",
+      "description": "Filter",
+      "name": "filter",
+      "schema": {
+        "$ref": "#/$defs/Filter"
+      },
+      "required": true,
+      "deprecated": false
+    }
+  ],
+  "defs": {
+    "Filter": {
+      "properties": {
+        "address": {
+          "oneOf": [
+            {
+              "type": "null",
+              "title": "Any Address"
+            },
+            {
+              "$ref": "#/$defs/address",
+              "title": "Address"
+            },
+            {
+              "$ref": "#/$defs/addresses",
+              "title": "Addresses"
+            }
+          ],
+          "title": "Address(es)"
+        },
+        "fromBlock": {
+          "$ref": "#/$defs/uint",
+          "title": "from block"
+        },
+        "toBlock": {
+          "$ref": "#/$defs/uint",
+          "title": "to block"
+        },
+        "topics": {
+          "$ref": "#/$defs/FilterTopics",
+          "title": "Topics"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "title": "filter"
+    },
+    "FilterTopic": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/bytes32",
+          "title": "Single Topic Match"
+        },
+        {
+          "items": {
+            "$ref": "#/$defs/bytes32"
+          },
+          "type": "array",
+          "title": "Multiple Topic Match"
+        }
+      ],
+      "title": "Filter Topic List Entry"
+    },
+    "FilterTopics": {
+      "oneOf": [
+        {
+          "type": "null",
+          "title": "Any Topic Match"
+        },
+        {
+          "items": {
+            "$ref": "#/$defs/FilterTopic"
+          },
+          "type": "array",
+          "title": "Specified Filter Topics"
+        }
+      ],
+      "title": "Filter Topics"
+    },
+    "address": {
+      "type": "string",
+      "pattern": "^0x[0-9a-fA-F]{40}$",
+      "title": "hex encoded address"
+    },
+    "addresses": {
+      "items": {
+        "$ref": "#/$defs/address"
+      },
+      "type": "array",
+      "title": "hex encoded address"
+    },
+    "bytes32": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$",
+      "title": "32 hex encoded bytes"
+    },
+    "uint": {
+      "type": "string",
+      "pattern": "^0x(0|[1-9a-f][0-9a-f]*)$",
+      "title": "hex encoded unsigned integer"
+    }
+  }
+}

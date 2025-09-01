@@ -1,0 +1,57 @@
+{
+  "summary": "Exchanges transition configuration",
+  "description": "",
+  "name": "engine_exchangeTransitionConfigurationV1",
+  "params": [
+    {
+      "summary": "",
+      "description": "Consensus client configuration",
+      "name": "consensus_client_configuration",
+      "schema": {
+        "$ref": "#/$defs/TransitionConfigurationV1"
+      },
+      "required": true,
+      "deprecated": false
+    }
+  ],
+  "defs": {
+    "TransitionConfigurationV1": {
+      "properties": {
+        "terminalBlockHash": {
+          "$ref": "#/$defs/hash32",
+          "title": "Terminal block hash"
+        },
+        "terminalBlockNumber": {
+          "$ref": "#/$defs/uint64",
+          "title": "Terminal block number"
+        },
+        "terminalTotalDifficulty": {
+          "$ref": "#/$defs/uint256",
+          "title": "Terminal total difficulty"
+        }
+      },
+      "type": "object",
+      "required": [
+        "terminalTotalDifficulty",
+        "terminalBlockHash",
+        "terminalBlockNumber"
+      ],
+      "title": "Transition configuration object"
+    },
+    "hash32": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$",
+      "title": "32 byte hex value"
+    },
+    "uint256": {
+      "type": "string",
+      "pattern": "^0x(0|[1-9a-f][0-9a-f]{0,63})$",
+      "title": "hex encoded 256 bit unsigned integer"
+    },
+    "uint64": {
+      "type": "string",
+      "pattern": "^0x(0|[1-9a-f][0-9a-f]{0,15})$",
+      "title": "hex encoded 64 bit unsigned integer"
+    }
+  }
+}

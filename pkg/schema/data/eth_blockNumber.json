@@ -1,0 +1,7 @@
+{
+  "summary": "Returns the number of most recent block.",
+  "description": "",
+  "name": "eth_blockNumber",
+  "params": [],
+  "defs": null
+}

@@ -1,0 +1,95 @@
+{
+  "summary": "Updates the forkchoice state",
+  "description": "",
+  "name": "engine_forkchoiceUpdatedV1",
+  "params": [
+    {
+      "summary": "",
+      "description": "Forkchoice state",
+      "name": "forkchoice_state",
+      "schema": {
+        "$ref": "#/$defs/ForkchoiceStateV1"
+      },
+      "required": true,
+      "deprecated": false
+    },
+    {
+      "summary": "",
+      "description": "Payload attributes",
+      "name": "payload_attributes",
+      "schema": {
+        "$ref": "#/$defs/PayloadAttributesV1"
+      },
+      "required": false,
+      "deprecated": false
+    }
+  ],
+  "defs": {
+    "ForkchoiceStateV1": {
+      "properties": {
+        "finalizedBlockHash": {
+          "$ref": "#/$defs/hash32",
+          "title": "Finalized block hash"
+        },
+        "headBlockHash": {
+          "$ref": "#/$defs/hash32",
+          "title": "Head block hash"
+        },
+        "safeBlockHash": {
+          "$ref": "#/$defs/hash32",
+          "title": "Safe block hash"
+        }
+      },
+      "type": "object",
+      "required": [
+        "headBlockHash",
+        "safeBlockHash",
+        "finalizedBlockHash"
+      ],
+      "title": "Forkchoice state object V1"
+    },
+    "PayloadAttributesV1": {
+      "properties": {
+        "prevRandao": {
+          "$ref": "#/$defs/bytes32",
+          "title": "Previous randao value"
+        },
+        "suggestedFeeRecipient": {
+          "$ref": "#/$defs/address",
+          "title": "Suggested fee recipient"
+        },
+        "timestamp": {
+          "$ref": "#/$defs/uint64",
+          "title": "Timestamp"
+        }
+      },
+      "type": "object",
+      "required": [
+        "timestamp",
+        "prevRandao",
+        "suggestedFeeRecipient"
+      ],
+      "title": "Payload attributes object V1"
+    },
+    "address": {
+      "type": "string",
+      "pattern": "^0x[0-9a-fA-F]{40}$",
+      "title": "hex encoded address"
+    },
+    "bytes32": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$",
+      "title": "32 hex encoded bytes"
+    },
+    "hash32": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$",
+      "title": "32 byte hex value"
+    },
+    "uint64": {
+      "type": "string",
+      "pattern": "^0x(0|[1-9a-f][0-9a-f]{0,15})$",
+      "title": "hex encoded 64 bit unsigned integer"
+    }
+  }
+}

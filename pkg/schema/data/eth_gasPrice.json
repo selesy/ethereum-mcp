@@ -1,0 +1,7 @@
+{
+  "summary": "Returns the current price per gas in wei.",
+  "description": "",
+  "name": "eth_gasPrice",
+  "params": [],
+  "defs": null
+}

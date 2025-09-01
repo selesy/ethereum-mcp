@@ -1,0 +1,7 @@
+{
+  "summary": "Returns the chain ID of the current network.",
+  "description": "",
+  "name": "eth_chainId",
+  "params": [],
+  "defs": null
+}

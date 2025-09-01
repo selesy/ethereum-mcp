@@ -1,0 +1,24 @@
+{
+  "summary": "Obtains execution payload from payload build process",
+  "description": "",
+  "name": "engine_getPayloadV5",
+  "params": [
+    {
+      "summary": "",
+      "description": "Payload id",
+      "name": "payload_id",
+      "schema": {
+        "$ref": "#/$defs/bytes8"
+      },
+      "required": true,
+      "deprecated": false
+    }
+  ],
+  "defs": {
+    "bytes8": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{16}$",
+      "title": "8 hex encoded bytes"
+    }
+  }
+}

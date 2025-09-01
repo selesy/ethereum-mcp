@@ -1,0 +1,27 @@
+{
+  "summary": "Given block hashes returns bodies of the corresponding execution payloads",
+  "description": "",
+  "name": "engine_getPayloadBodiesByHashV1",
+  "params": [
+    {
+      "summary": "",
+      "description": "Array of block hashes",
+      "name": "array_of_block_hashes",
+      "schema": {
+        "items": {
+          "$ref": "#/$defs/hash32"
+        },
+        "type": "array"
+      },
+      "required": true,
+      "deprecated": false
+    }
+  ],
+  "defs": {
+    "hash32": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$",
+      "title": "32 byte hex value"
+    }
+  }
+}

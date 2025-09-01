@@ -1,0 +1,90 @@
+{
+  "summary": "Updates the forkchoice state",
+  "description": "",
+  "name": "engine_forkchoiceUpdatedV3",
+  "params": [
+    {
+      "summary": "",
+      "description": "Forkchoice state",
+      "name": "forkchoice_state",
+      "schema": {
+        "$ref": "#/$defs/ForkchoiceStateV1"
+      },
+      "required": true,
+      "deprecated": false
+    },
+    {
+      "summary": "",
+      "description": "Payload attributes",
+      "name": "payload_attributes",
+      "schema": {
+        "$ref": "#/$defs/PayloadAttributesV3"
+      },
+      "required": false,
+      "deprecated": false
+    }
+  ],
+  "defs": {
+    "ForkchoiceStateV1": {
+      "properties": {
+        "finalizedBlockHash": {
+          "$ref": "#/$defs/hash32",
+          "title": "Finalized block hash"
+        },
+        "headBlockHash": {
+          "$ref": "#/$defs/hash32",
+          "title": "Head block hash"
+        },
+        "safeBlockHash": {
+          "$ref": "#/$defs/hash32",
+          "title": "Safe block hash"
+        }
+      },
+      "type": "object",
+      "required": [
+        "headBlockHash",
+        "safeBlockHash",
+        "finalizedBlockHash"
+      ],
+      "title": "Forkchoice state object V1"
+    },
+    "PayloadAttributesV3": {
+      "properties": {
+        "parentBeaconBlockRoot": {
+          "$ref": "#/$defs/hash32",
+          "title": "Parent beacon block root"
+        },
+        "prevRandao": {
+          "$ref": "#/$defs/PayloadAttributesV2/properties/prevRandao"
+        },
+        "suggestedFeeRecipient": {
+          "$ref": "#/$defs/PayloadAttributesV2/properties/suggestedFeeRecipient"
+        },
+        "timestamp": {
+          "$ref": "#/$defs/PayloadAttributesV2/properties/timestamp"
+        },
+        "withdrawals": {
+          "$ref": "#/$defs/PayloadAttributesV2/properties/withdrawals"
+        }
+      },
+      "type": "object",
+      "required": [
+        "timestamp",
+        "prevRandao",
+        "suggestedFeeRecipient",
+        "withdrawals",
+        "parentBeaconBlockRoot"
+      ],
+      "title": "Payload attributes object V3"
+    },
+    "hash32": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$",
+      "title": "32 byte hex value"
+    },
+    "prevRandao": null,
+    "suggestedFeeRecipient": null,
+    "timestamp": null,
+    "withdrawals": null
+  }
+}

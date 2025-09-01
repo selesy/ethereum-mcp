@@ -1,0 +1,7 @@
+{
+  "summary": "Returns an object with data about the sync status or false.",
+  "description": "",
+  "name": "eth_syncing",
+  "params": [],
+  "defs": null
+}

@@ -1,0 +1,24 @@
+{
+  "summary": "Polling method for the filter with the given ID (created using `eth_newFilter`). Returns an array of logs, block hashes, or transaction hashes since last poll, depending on the installed filter.",
+  "description": "",
+  "name": "eth_getFilterChanges",
+  "params": [
+    {
+      "summary": "",
+      "description": "Filter identifier",
+      "name": "filter_identifier",
+      "schema": {
+        "$ref": "#/$defs/uint"
+      },
+      "required": true,
+      "deprecated": false
+    }
+  ],
+  "defs": {
+    "uint": {
+      "type": "string",
+      "pattern": "^0x(0|[1-9a-f][0-9a-f]*)$",
+      "title": "hex encoded unsigned integer"
+    }
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "summary": "Runs execution payload validation",
+  "description": "",
+  "name": "engine_newPayloadV4",
+  "params": [
+    {
+      "summary": "",
+      "description": "Execution payload",
+      "name": "execution_payload",
+      "schema": {
+        "$ref": "#/$defs/ExecutionPayloadV3"
+      },
+      "required": true,
+      "deprecated": false
+    },
+    {
+      "summary": "",
+      "description": "Expected blob versioned hashes",
+      "name": "expected_blob_versioned_hashes",
+      "schema": {
+        "items": {
+          "$ref": "#/$defs/hash32"
+        },
+        "type": "array"
+      },
+      "required": true,
+      "deprecated": false
+    },
+    {
+      "summary": "",
+      "description": "Root of the parent beacon block",
+      "name": "root_of_the_parent_beacon_block",
+      "schema": {
+        "$ref": "#/$defs/hash32"
+      },
+      "required": true,
+      "deprecated": false
+    },
+    {
+      "summary": "",
+      "description": "Execution requests",
+      "name": "execution_requests",
+      "schema": {
+        "items": {
+          "$ref": "#/$defs/bytes"
+        },
+        "type": "array"
+      },
+      "required": true,
+      "deprecated": false
+    }
+  ],
+  "defs": {
+    "ExecutionPayloadV3": {
+      "properties": {
+        "baseFeePerGas": {
+          "$ref": "#/$defs/ExecutionPayloadV2/properties/baseFeePerGas"
+        },
+        "blobGasUsed": {
+          "$ref": "#/$defs/uint64",
+          "title": "Blob gas used"
+        },
+        "blockHash": {
+          "$ref": "#/$defs/ExecutionPayloadV2/properties/blockHash"
+        },
+        "blockNumber": {
+          "$ref": "#/$defs/ExecutionPayloadV2/properties/blockNumber"
+        },
+        "excessBlobGas": {
+          "$ref": "#/$defs/uint64",
+          "title": "Excess blob gas"
+        },
+        "extraData": {
+          "$ref": "#/$defs/ExecutionPayloadV2/properties/extraData"
+        },
+        "feeRecipient": {
+          "$ref": "#/$defs/ExecutionPayloadV2/properties/feeRecipient"
+        },
+        "gasLimit": {
+          "$ref": "#/$defs/ExecutionPayloadV2/properties/gasLimit"
+        },
+        "gasUsed": {
+          "$ref": "#/$defs/ExecutionPayloadV2/properties/gasUsed"
+        },
+        "logsBloom": {
+          "$ref": "#/$defs/ExecutionPayloadV2/properties/logsBloom"
+        },
+        "parentHash": {
+          "$ref": "#/$defs/ExecutionPayloadV2/properties/parentHash"
+        },
+        "prevRandao": {
+          "$ref": "#/$defs/ExecutionPayloadV2/properties/prevRandao"
+        },
+        "receiptsRoot": {
+          "$ref": "#/$defs/ExecutionPayloadV2/properties/receiptsRoot"
+        },
+        "stateRoot": {
+          "$ref": "#/$defs/ExecutionPayloadV2/properties/stateRoot"
+        },
+        "timestamp": {
+          "$ref": "#/$defs/ExecutionPayloadV2/properties/timestamp"
+        },
+        "transactions": {
+          "$ref": "#/$defs/ExecutionPayloadV2/properties/transactions"
+        },
+        "withdrawals": {
+          "$ref": "#/$defs/ExecutionPayloadV2/properties/withdrawals"
+        }
+      },
+      "type": "object",
+      "required": [
+        "parentHash",
+        "feeRecipient",
+        "stateRoot",
+        "receiptsRoot",
+        "logsBloom",
+        "prevRandao",
+        "blockNumber",
+        "gasLimit",
+        "gasUsed",
+        "timestamp",
+        "extraData",
+        "baseFeePerGas",
+        "blockHash",
+        "transactions",
+        "withdrawals",
+        "blobGasUsed",
+        "excessBlobGas"
+      ],
+      "title": "Execution payload object V3"
+    },
+    "baseFeePerGas": null,
+    "blockHash": null,
+    "blockNumber": null,
+    "bytes": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]*$",
+      "title": "hex encoded bytes"
+    },
+    "extraData": null,
+    "feeRecipient": null,
+    "gasLimit": null,
+    "gasUsed": null,
+    "hash32": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$",
+      "title": "32 byte hex value"
+    },
+    "logsBloom": null,
+    "parentHash": null,
+    "prevRandao": null,
+    "receiptsRoot": null,
+    "stateRoot": null,
+    "timestamp": null,
+    "transactions": null,
+    "uint64": {
+      "type": "string",
+      "pattern": "^0x(0|[1-9a-f][0-9a-f]{0,15})$",
+      "title": "hex encoded 64 bit unsigned integer"
+    },
+    "withdrawals": null
+  }
+}

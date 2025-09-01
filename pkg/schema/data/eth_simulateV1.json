@@ -1,0 +1,419 @@
+{
+  "summary": "Executes a sequence of message calls building on each other's state without creating transactions on the block chain, optionally overriding block and state data",
+  "description": "",
+  "name": "eth_simulateV1",
+  "params": [
+    {
+      "summary": "",
+      "description": "Payload",
+      "name": "payload",
+      "schema": {
+        "$ref": "#/$defs/EthSimulatePayload"
+      },
+      "required": true,
+      "deprecated": false
+    },
+    {
+      "summary": "",
+      "description": "default: 'latest'",
+      "name": "block_tag",
+      "schema": {
+        "$ref": "#/$defs/BlockNumberOrTagOrHash"
+      },
+      "required": false,
+      "deprecated": false
+    }
+  ],
+  "defs": {
+    "AccessList": {
+      "items": {
+        "$ref": "#/$defs/AccessListEntry"
+      },
+      "type": "array",
+      "title": "Access list"
+    },
+    "AccessListEntry": {
+      "properties": {
+        "address": {
+          "$ref": "#/$defs/address"
+        },
+        "storageKeys": {
+          "items": {
+            "$ref": "#/$defs/hash32"
+          },
+          "type": "array"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "address",
+        "storageKeys"
+      ],
+      "title": "Access list entry"
+    },
+    "AccountOverride": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/AccountOverrideState"
+        },
+        {
+          "$ref": "#/$defs/AccountOverrideStateDiff"
+        }
+      ],
+      "type": "object",
+      "title": "Details of an account to be overridden"
+    },
+    "AccountOverrideState": {
+      "properties": {
+        "balance": {
+          "$ref": "#/$defs/uint256",
+          "title": "Balance"
+        },
+        "code": {
+          "$ref": "#/$defs/bytes",
+          "title": "Code"
+        },
+        "movePrecompileToAddress": {
+          "$ref": "#/$defs/address",
+          "title": "MovePrecompileToAddress",
+          "description": "Moves addresses precompile into the specified address. This move is done before the 'code' override is set. When the specified address is not a precompile, the behaviour is undefined and different clients might behave differently."
+        },
+        "nonce": {
+          "$ref": "#/$defs/uint64",
+          "title": "Nonce"
+        },
+        "state": {
+          "$ref": "#/$defs/AccountStorage",
+          "title": "Storage",
+          "description": "Key-value mapping to override all slots in the account storage before executing the call. This functions similar to eth_call's state parameter."
+        }
+      },
+      "required": [
+        "state"
+      ],
+      "title": "Account override with whole storage replacement",
+      "description": "It is possible to override any kind of address (EOA's, contracts and precompiles)"
+    },
+    "AccountOverrideStateDiff": {
+      "properties": {
+        "balance": {
+          "$ref": "#/$defs/uint256",
+          "title": "Balance"
+        },
+        "code": {
+          "$ref": "#/$defs/bytes",
+          "title": "Code"
+        },
+        "movePrecompileToAddress": {
+          "$ref": "#/$defs/address",
+          "title": "MovePrecompileToAddress",
+          "description": "Moves addresses precompile into the specified address. This move is done before the 'code' override is set. Can only move precompiles."
+        },
+        "nonce": {
+          "$ref": "#/$defs/uint64",
+          "title": "Nonce"
+        },
+        "stateDiff": {
+          "$ref": "#/$defs/AccountStorage",
+          "title": "Storage difference",
+          "description": "Key-value mapping to override individual slots in the account storage before executing the call. This functions similar to eth_call's state parameter."
+        }
+      },
+      "required": [
+        "stateDiff"
+      ],
+      "title": "Account override with partial storage modification"
+    },
+    "AccountStorage": {
+      "patternProperties": {
+        "^0x[a-fA-F0-9]{64}$": {
+          "$ref": "#/$defs/hash32"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "title": "Storage slots for an account"
+    },
+    "BlockNumberOrTagOrHash": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/uint",
+          "title": "Block number"
+        },
+        {
+          "$ref": "#/$defs/BlockTag",
+          "title": "Block tag"
+        },
+        {
+          "$ref": "#/$defs/hash32",
+          "title": "Block hash"
+        }
+      ],
+      "title": "Block number, tag, or block hash"
+    },
+    "BlockOverrides": {
+      "properties": {
+        "baseFeePerGas": {
+          "$ref": "#/$defs/uint256",
+          "title": "Base fee per unit of gas"
+        },
+        "blobBaseFee": {
+          "$ref": "#/$defs/uint64",
+          "title": "Base fee per unit of blob gas"
+        },
+        "feeRecipient": {
+          "$ref": "#/$defs/address",
+          "title": "Fee Recipient (also known as coinbase)"
+        },
+        "gasLimit": {
+          "$ref": "#/$defs/uint64",
+          "title": "Gas limit"
+        },
+        "number": {
+          "$ref": "#/$defs/uint64",
+          "title": "Number",
+          "description": "When overriding block numbers across multiple blocks, block number need to be increasing. Skipping over blocks numbers is possible. If block number is not specified, it's incremented by one for each block."
+        },
+        "prevRandao": {
+          "$ref": "#/$defs/uint256",
+          "title": "The Previous value of randomness beacon"
+        },
+        "time": {
+          "$ref": "#/$defs/uint64",
+          "title": "Time",
+          "description": "Time must either increase or remain constant relative to the previous block. If time is not specified, it's incremented by one for each block."
+        },
+        "withdrawals": {
+          "$ref": "#/$defs/Withdrawals",
+          "title": "Withdrawals made by validators"
+        }
+      },
+      "type": "object",
+      "title": "Context fields related to the block being executed"
+    },
+    "BlockStateCalls": {
+      "properties": {
+        "blockOverrides": {
+          "$ref": "#/$defs/BlockOverrides",
+          "title": "Block overrides",
+          "description": "Block overrides can be used to replace fields in a block.\ndefault: no block override."
+        },
+        "calls": {
+          "items": {
+            "$ref": "#/$defs/GenericCallTransaction"
+          },
+          "type": "array",
+          "title": "calls",
+          "description": "List of transactions to execute at this block/state.\nDefault: []"
+        },
+        "stateOverrides": {
+          "$ref": "#/$defs/StateOverrides",
+          "title": "State overrides",
+          "description": "State overrides can be used to replace existing blockchain state with new state.\nDefault: no state overrides"
+        }
+      },
+      "type": "array",
+      "title": "Array of block state calls to be executed at specific, optional block/state.",
+      "description": "The size of this array may be limited depending on the client as a DOS protection. 256 is a common/recommended limit as it is the same limit used by BLOCKHASH opcode."
+    },
+    "BlockTag": {
+      "type": "string",
+      "enum": [
+        "earliest",
+        "finalized",
+        "safe",
+        "latest",
+        "pending"
+      ],
+      "title": "Block tag",
+      "description": "`earliest`: The lowest numbered block the client has available; `finalized`: The most recent crypto-economically secure block, cannot be re-orged outside of manual intervention driven by community coordination; `safe`: The most recent block that is safe from re-orgs under honest majority and certain synchronicity assumptions; `latest`: The most recent block in the canonical chain observed by the client, this block may be re-orged out of the canonical chain even under healthy/normal conditions; `pending`: A sample next block built by the client on top of `latest` and containing the set of transactions usually taken from local mempool. Before the merge transition is finalized, any call querying for `finalized` or `safe` block MUST be responded to with `-39001: Unknown block` error"
+    },
+    "EthSimulatePayload": {
+      "properties": {
+        "blockStateCalls": {
+          "$ref": "#/$defs/BlockStateCalls",
+          "title": "Block State Calls",
+          "description": "Definition of blocks that can contain calls and overrides"
+        },
+        "returnFullTransactions": {
+          "type": "boolean",
+          "title": "Return Full Transactions",
+          "description": "When true, the method returns full transaction objects, otherwise, just hashes are returned."
+        },
+        "traceTransfers": {
+          "type": "boolean",
+          "title": "Trace ETH Transfers",
+          "description": "Adds ETH transfers as ERC20 transfer events to the logs. These transfers have emitter contract parameter set as address(0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee).\nDefault: false."
+        },
+        "validation": {
+          "type": "boolean",
+          "title": "Validation",
+          "description": "When true, the eth_simulateV1 does all validations that a normal EVM would do, except contract sender and signature checks. When false, eth_simulateV1 behaves like eth_call.\nDefault: false."
+        }
+      },
+      "required": [
+        "blockStateCalls"
+      ],
+      "title": "Arguments for eth_simulate"
+    },
+    "GenericCallTransaction": {
+      "properties": {
+        "accessList": {
+          "$ref": "#/$defs/AccessList",
+          "title": "accessList",
+          "description": "EIP-2930 access list\nDefault: []"
+        },
+        "blobVersionedHashes": {
+          "$ref": "#/$defs/bytes32",
+          "title": "Blob versioned hashes",
+          "description": "EIP-4844 versioned hashes\nDefault: []"
+        },
+        "from": {
+          "$ref": "#/$defs/address",
+          "title": "from address",
+          "description": "Default: null"
+        },
+        "gas": {
+          "$ref": "#/$defs/uint64",
+          "title": "gas limit",
+          "description": "Default: Remaining gas in the current block"
+        },
+        "gasPrice": {
+          "$ref": "#/$defs/uint256",
+          "title": "gas price",
+          "description": "The gas price willing to be paid by the sender in wei\nDefault: 0"
+        },
+        "input": {
+          "$ref": "#/$defs/bytes",
+          "title": "input data",
+          "description": "Default: no data"
+        },
+        "maxFeePerBlobGas": {
+          "$ref": "#/$defs/uint256",
+          "title": "max fee per blob gas",
+          "description": "The maximum total fee per blob gas the sender is willing to pay in wei\nDefault: 0"
+        },
+        "maxFeePerGas": {
+          "$ref": "#/$defs/uint256",
+          "title": "max fee per gas",
+          "description": "The maximum total fee per gas the sender is willing to pay (includes the network / base fee and miner / priority fee) in wei\nDefault: 0"
+        },
+        "maxPriorityFeePerGas": {
+          "$ref": "#/$defs/uint256",
+          "title": "max priority fee per gas",
+          "description": "Maximum fee per gas the sender is willing to pay to miners in wei\nDefault: 0"
+        },
+        "nonce": {
+          "$ref": "#/$defs/uint64",
+          "title": "nonce",
+          "description": "Default: Defaults to correct nonce"
+        },
+        "to": {
+          "$ref": "#/$defs/address",
+          "title": "to address",
+          "description": "Default: 0x0"
+        },
+        "type": {
+          "$ref": "#/$defs/byte",
+          "title": "type",
+          "description": "Default: 0x2"
+        },
+        "value": {
+          "$ref": "#/$defs/uint256",
+          "title": "value",
+          "description": "Default: 0"
+        }
+      },
+      "type": "object",
+      "title": "Transaction object type for call"
+    },
+    "StateOverrides": {
+      "patternProperties": {
+        "^0x[a-fA-F0-9]{40}$": {
+          "$ref": "#/$defs/AccountOverride"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "title": "Dictionary of addresses in the state to be overridden"
+    },
+    "Withdrawal": {
+      "properties": {
+        "address": {
+          "$ref": "#/$defs/address",
+          "title": "recipient address for withdrawal value"
+        },
+        "amount": {
+          "$ref": "#/$defs/uint256",
+          "title": "value contained in withdrawal"
+        },
+        "index": {
+          "$ref": "#/$defs/uint64",
+          "title": "index of withdrawal"
+        },
+        "validatorIndex": {
+          "$ref": "#/$defs/uint64",
+          "title": "index of validator that generated withdrawal"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "index",
+        "validatorIndex",
+        "address",
+        "amount"
+      ],
+      "title": "Validator withdrawal"
+    },
+    "Withdrawals": {
+      "items": {
+        "$ref": "#/$defs/Withdrawal"
+      },
+      "type": "array",
+      "title": "Withdrawals made by validators",
+      "description": "This array can have a maximum length of 16."
+    },
+    "address": {
+      "type": "string",
+      "pattern": "^0x[0-9a-fA-F]{40}$",
+      "title": "hex encoded address"
+    },
+    "byte": {
+      "type": "string",
+      "pattern": "^0x([0-9a-fA-F]?){1,2}$",
+      "title": "hex encoded byte"
+    },
+    "bytes": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]*$",
+      "title": "hex encoded bytes"
+    },
+    "bytes32": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$",
+      "title": "32 hex encoded bytes"
+    },
+    "hash32": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$",
+      "title": "32 byte hex value"
+    },
+    "uint": {
+      "type": "string",
+      "pattern": "^0x(0|[1-9a-f][0-9a-f]*)$",
+      "title": "hex encoded unsigned integer"
+    },
+    "uint256": {
+      "type": "string",
+      "pattern": "^0x(0|[1-9a-f][0-9a-f]{0,63})$",
+      "title": "hex encoded 256 bit unsigned integer"
+    },
+    "uint64": {
+      "type": "string",
+      "pattern": "^0x(0|[1-9a-f][0-9a-f]{0,15})$",
+      "title": "hex encoded 64 bit unsigned integer"
+    }
+  }
+}

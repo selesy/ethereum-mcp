@@ -1,0 +1,34 @@
+{
+  "summary": "Given a range of block numbers returns bodies of the corresponding execution payloads",
+  "description": "",
+  "name": "engine_getPayloadBodiesByRangeV1",
+  "params": [
+    {
+      "summary": "",
+      "description": "Starting block number",
+      "name": "starting_block_number",
+      "schema": {
+        "$ref": "#/$defs/uint64"
+      },
+      "required": true,
+      "deprecated": false
+    },
+    {
+      "summary": "",
+      "description": "Number of blocks to return",
+      "name": "number_of_blocks_to_return",
+      "schema": {
+        "$ref": "#/$defs/uint64"
+      },
+      "required": true,
+      "deprecated": false
+    }
+  ],
+  "defs": {
+    "uint64": {
+      "type": "string",
+      "pattern": "^0x(0|[1-9a-f][0-9a-f]{0,15})$",
+      "title": "hex encoded 64 bit unsigned integer"
+    }
+  }
+}

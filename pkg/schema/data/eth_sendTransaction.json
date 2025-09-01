@@ -1,0 +1,214 @@
+{
+  "summary": "Signs and submits a transaction.",
+  "description": "",
+  "name": "eth_sendTransaction",
+  "params": [
+    {
+      "summary": "",
+      "description": "Transaction",
+      "name": "transaction",
+      "schema": {
+        "$ref": "#/$defs/GenericTransaction"
+      },
+      "required": true,
+      "deprecated": false
+    }
+  ],
+  "defs": {
+    "AccessList": {
+      "items": {
+        "$ref": "#/$defs/AccessListEntry"
+      },
+      "type": "array",
+      "title": "Access list"
+    },
+    "AccessListEntry": {
+      "properties": {
+        "address": {
+          "$ref": "#/$defs/address"
+        },
+        "storageKeys": {
+          "items": {
+            "$ref": "#/$defs/hash32"
+          },
+          "type": "array"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "address",
+        "storageKeys"
+      ],
+      "title": "Access list entry"
+    },
+    "AuthorizationList": {
+      "items": {
+        "properties": {
+          "address": {
+            "$ref": "#/$defs/address"
+          },
+          "chainId": {
+            "$ref": "#/$defs/uint",
+            "title": "chainId",
+            "description": "Chain ID on which this transaction is valid"
+          },
+          "nonce": {
+            "$ref": "#/$defs/uint",
+            "title": "nonce"
+          },
+          "r": {
+            "$ref": "#/$defs/uint256",
+            "title": "r"
+          },
+          "s": {
+            "$ref": "#/$defs/uint256",
+            "title": "s"
+          },
+          "yParity": {
+            "$ref": "#/$defs/byte",
+            "title": "yParity",
+            "description": "The parity (0 for even, 1 for odd) of the y-value of the secp256k1 signature"
+          }
+        },
+        "type": "object",
+        "required": [
+          "chainId",
+          "nonce",
+          "address",
+          "yParity",
+          "r",
+          "s"
+        ]
+      },
+      "type": "array",
+      "title": "Authorization List",
+      "description": "List of authorizations for the transaction"
+    },
+    "GenericTransaction": {
+      "properties": {
+        "accessList": {
+          "$ref": "#/$defs/AccessList",
+          "title": "accessList",
+          "description": "EIP-2930 access list"
+        },
+        "authorizationList": {
+          "$ref": "#/$defs/AuthorizationList",
+          "title": "authorizationList",
+          "description": "EIP-7702 authorization list"
+        },
+        "blobVersionedHashes": {
+          "items": {
+            "$ref": "#/$defs/hash32"
+          },
+          "type": "array",
+          "title": "blobVersionedHashes",
+          "description": "List of versioned blob hashes associated with the transaction's EIP-4844 data blobs."
+        },
+        "blobs": {
+          "items": {
+            "$ref": "#/$defs/bytes"
+          },
+          "type": "array",
+          "title": "blobs",
+          "description": "Raw blob data."
+        },
+        "chainId": {
+          "$ref": "#/$defs/uint",
+          "title": "chainId",
+          "description": "Chain ID that this transaction is valid on."
+        },
+        "from": {
+          "$ref": "#/$defs/address",
+          "title": "from address"
+        },
+        "gas": {
+          "$ref": "#/$defs/uint",
+          "title": "gas limit"
+        },
+        "gasPrice": {
+          "$ref": "#/$defs/uint",
+          "title": "gas price",
+          "description": "The gas price willing to be paid by the sender in wei"
+        },
+        "input": {
+          "$ref": "#/$defs/bytes",
+          "title": "input data"
+        },
+        "maxFeePerBlobGas": {
+          "$ref": "#/$defs/uint",
+          "title": "max fee per blob gas",
+          "description": "The maximum total fee per gas the sender is willing to pay for blob gas in wei"
+        },
+        "maxFeePerGas": {
+          "$ref": "#/$defs/uint",
+          "title": "max fee per gas",
+          "description": "The maximum total fee per gas the sender is willing to pay (includes the network / base fee and miner / priority fee) in wei"
+        },
+        "maxPriorityFeePerGas": {
+          "$ref": "#/$defs/uint",
+          "title": "max priority fee per gas",
+          "description": "Maximum fee per gas the sender is willing to pay to miners in wei"
+        },
+        "nonce": {
+          "$ref": "#/$defs/uint",
+          "title": "nonce"
+        },
+        "to": {
+          "oneOf": [
+            {
+              "type": "null",
+              "title": "Contract Creation (null)"
+            },
+            {
+              "$ref": "#/$defs/address",
+              "title": "Address"
+            }
+          ],
+          "title": "to address"
+        },
+        "type": {
+          "$ref": "#/$defs/byte",
+          "title": "type"
+        },
+        "value": {
+          "$ref": "#/$defs/uint",
+          "title": "value"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "title": "Transaction object generic to all types"
+    },
+    "address": {
+      "type": "string",
+      "pattern": "^0x[0-9a-fA-F]{40}$",
+      "title": "hex encoded address"
+    },
+    "byte": {
+      "type": "string",
+      "pattern": "^0x([0-9a-fA-F]?){1,2}$",
+      "title": "hex encoded byte"
+    },
+    "bytes": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]*$",
+      "title": "hex encoded bytes"
+    },
+    "hash32": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$",
+      "title": "32 byte hex value"
+    },
+    "uint": {
+      "type": "string",
+      "pattern": "^0x(0|[1-9a-f][0-9a-f]*)$",
+      "title": "hex encoded unsigned integer"
+    },
+    "uint256": {
+      "type": "string",
+      "pattern": "^0x(0|[1-9a-f][0-9a-f]{0,63})$",
+      "title": "hex encoded 256 bit unsigned integer"
+    }
+  }
+}

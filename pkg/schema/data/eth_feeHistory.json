@@ -1,0 +1,75 @@
+{
+  "summary": "Transaction fee history",
+  "description": "Returns transaction base fee per gas and effective priority fee per gas for the requested/supported block range.",
+  "name": "eth_feeHistory",
+  "params": [
+    {
+      "summary": "",
+      "description": "Requested range of blocks. Clients will return less than the requested range if not all blocks are available.",
+      "name": "blockcount",
+      "schema": {
+        "$ref": "#/$defs/uint"
+      },
+      "required": true,
+      "deprecated": false
+    },
+    {
+      "summary": "",
+      "description": "Highest block of the requested range.",
+      "name": "newestblock",
+      "schema": {
+        "$ref": "#/$defs/BlockNumberOrTag"
+      },
+      "required": true,
+      "deprecated": false
+    },
+    {
+      "summary": "",
+      "description": "A monotonically increasing list of percentile values. For each block in the requested range, the transactions will be sorted in ascending order by effective tip per gas and the corresponding effective tip for the percentile will be determined, accounting for gas consumed.",
+      "name": "rewardpercentiles",
+      "schema": {
+        "items": {
+          "type": "number",
+          "title": "rewardPercentile",
+          "description": "Floating point value between 0 and 100."
+        },
+        "type": "array",
+        "title": "rewardPercentiles"
+      },
+      "required": true,
+      "deprecated": false
+    }
+  ],
+  "defs": {
+    "BlockNumberOrTag": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/uint",
+          "title": "Block number"
+        },
+        {
+          "$ref": "#/$defs/BlockTag",
+          "title": "Block tag"
+        }
+      ],
+      "title": "Block number or tag"
+    },
+    "BlockTag": {
+      "type": "string",
+      "enum": [
+        "earliest",
+        "finalized",
+        "safe",
+        "latest",
+        "pending"
+      ],
+      "title": "Block tag",
+      "description": "`earliest`: The lowest numbered block the client has available; `finalized`: The most recent crypto-economically secure block, cannot be re-orged outside of manual intervention driven by community coordination; `safe`: The most recent block that is safe from re-orgs under honest majority and certain synchronicity assumptions; `latest`: The most recent block in the canonical chain observed by the client, this block may be re-orged out of the canonical chain even under healthy/normal conditions; `pending`: A sample next block built by the client on top of `latest` and containing the set of transactions usually taken from local mempool. Before the merge transition is finalized, any call querying for `finalized` or `safe` block MUST be responded to with `-39001: Unknown block` error"
+    },
+    "uint": {
+      "type": "string",
+      "pattern": "^0x(0|[1-9a-f][0-9a-f]*)$",
+      "title": "hex encoded unsigned integer"
+    }
+  }
+}
