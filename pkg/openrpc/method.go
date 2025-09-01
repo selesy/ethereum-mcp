@@ -3,6 +3,7 @@ package openrpc
 import (
 	"encoding/json"
 	"errors"
+	"strings"
 
 	"github.com/invopop/jsonschema"
 )
@@ -136,6 +137,12 @@ func (p *Param) UnmarshalJSON(data []byte) error {
 	if err = json.Unmarshal(data, &p.param); err != nil {
 		err = errors.Join(ErrUnmarshalingParams, err)
 	}
+
+	if p.param.description() == "" {
+		p.param.Description = p.Name()
+	}
+
+	p.param.Name = strings.ToLower(strings.ReplaceAll(p.param.Name, " ", "_"))
 
 	return err
 }

@@ -8,6 +8,7 @@ package openrpc
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
 
@@ -23,39 +24,61 @@ func findParamReferences(data []byte) ([]string, error) {
 		return nil, err
 	}
 
-	return walkReferences(v, false), nil
+	params := walkJSON("", v, func(k string, v any) bool {
+		return k == "/params"
+	})
+
+	if len(params) != 1 {
+		return nil, nil
+	}
+
+	var refs []string
+
+	for _, v := range walkJSON("", params[0], referenceFilter) {
+		s, ok := v.(string)
+		if !ok {
+			return nil, fmt.Errorf("failed to convert reference to string: %v", v)
+		}
+
+		refs = append(refs, s[strings.LastIndex(s, "/")+1:])
+	}
+
+	return refs, nil
+}
+
+func referenceFilter(path string, v any) bool {
+	return strings.HasSuffix(path, "/$ref")
 }
 
 func rewriteReferences(data []byte) []byte {
 	return []byte(strings.ReplaceAll(string(data), ethereumReference, localReference))
 }
 
-func walkReferences(v any, inParams bool) []string {
-	if v == nil {
-		return nil
-	}
+func walkJSON(path string, v any, filter func(path string, v any) bool) []any {
+	var out []any
 
-	var refs []string
+	if v == nil {
+		return out
+	}
 
 	switch t := v.(type) {
 	case map[string]any:
-		if _, ok := t["params"]; ok {
-			return append(refs, walkReferences(t["params"], true)...)
-		}
+		for k, v := range t {
+			p := path + "/" + k
 
-		ref, ok := t["$ref"]
-		if ok && inParams {
-			refs = append(refs, strings.TrimPrefix(ref.(string), localReference))
-		}
+			if filter(p, v) {
+				out = append(out, v)
+			}
 
-		for _, v := range t {
-			refs = append(refs, walkReferences(v, inParams)...)
+			out = append(out, walkJSON(p, v, filter)...)
 		}
 	case []any:
-		for _, v := range t {
-			refs = append(refs, walkReferences(v, inParams)...)
+		for i, v := range t {
+			p := path + "[" + fmt.Sprint(i) + "]"
+
+			out = append(out, walkJSON(p, v, filter)...)
 		}
 	}
 
-	return refs
+	return out
 }

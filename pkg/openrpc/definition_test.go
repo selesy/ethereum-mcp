@@ -2,8 +2,10 @@ package openrpc_test
 
 import (
 	"encoding/json"
+	"fmt"
 	"testing"
 
+	"github.com/invopop/jsonschema"
 	"github.com/invopop/yaml"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -79,7 +81,8 @@ func TestDefinitions_Filter(t *testing.T) {
 	assert.True(t, defs.Contains("B2"))
 	assert.True(t, defs.Contains("B3"))
 
-	defs = defs.Filter("A3", "B2")
+	defs, err := defs.Filter("A3", "B2")
+	require.NoError(t, err)
 	assert.Equal(t, 2, defs.Len())
 
 	assert.True(t, defs.Contains("A3"))
@@ -110,6 +113,7 @@ func TestDefinitions_Unmarshal(t *testing.T) {
 		assert.Equal(t, "", def.Description)
 		assert.Equal(t, "hex encoded address", def.Title)
 		assert.Equal(t, "^0x[0-9a-fA-F]{40}$", def.Pattern)
-		assert.Equal(t, "string", def.Type)
+		assert.Equal(t, jsonschema.TypeString, def.Type)
+		fmt.Println("=====")
 	})
 }

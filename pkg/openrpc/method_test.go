@@ -34,8 +34,8 @@ func TestMethod_UnmarshalJSON(t *testing.T) {
 		assert.Equal(t, []string{"hash32"}, method.Refs())
 
 		param := method.Params()[0]
-		assert.Equal(t, "Transaction hash", param.Name())
-		assert.Empty(t, param.Description())
+		assert.Equal(t, "transaction_hash", param.Name())
+		assert.Equal(t, "Transaction hash", param.Description())
 		assert.True(t, param.Required())
 		assert.False(t, param.Deprecated())
 

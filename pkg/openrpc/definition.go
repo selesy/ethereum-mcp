@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"maps"
+	"strings"
 
 	"github.com/invopop/jsonschema"
 )
@@ -33,7 +34,9 @@ func (d *Definitions) Contains(key string) bool {
 // Filter returns a new Definitions containing only the keys provided and
 // using the underlying jsonschema.Definitions format so that it can be
 // directly added to the raw schema when creating the tool.
-func (d *Definitions) Filter(keys ...string) Definitions {
+func (d *Definitions) Filter(keys ...string) (Definitions, error) {
+	// Add the references from the passed in keys (presumably found by
+	// searching) for @ref in the parameters.
 	filtered := Definitions{defs: make(jsonschema.Definitions)}
 
 	for _, key := range keys {
@@ -42,7 +45,46 @@ func (d *Definitions) Filter(keys ...string) Definitions {
 		}
 	}
 
-	return filtered
+	// This is gross and perhaps recursion would be cleaner - finds
+	// additional $ref within the defs section and adds them to the
+	// filtered list.  Any $ref added might itself contain more $ref
+	// elements, so this runs an arbitrary number of times until
+	// the before and after counts match.
+	var (
+		beforeCount = 0
+		afterCount  = len(filtered.defs)
+	)
+
+	for beforeCount != afterCount {
+		beforeCount = afterCount
+
+		data, err := json.Marshal(filtered.defs)
+		if err != nil {
+			return Definitions{}, err
+		}
+
+		var a any
+		if err := json.Unmarshal(data, &a); err != nil {
+			return Definitions{}, err
+		}
+
+		refs := walkJSON("", a, referenceFilter)
+
+		for _, ref := range refs {
+			key, ok := ref.(string)
+			if !ok {
+				return Definitions{}, fmt.Errorf("no references was found for key: %s", key)
+			}
+
+			key = key[strings.LastIndex(key, "/")+1:]
+
+			filtered.defs[key] = d.defs[key]
+		}
+
+		afterCount = len(filtered.defs)
+	}
+
+	return filtered, nil
 }
 
 // Get returns the jsonschema.Schema for the given key.
@@ -74,7 +116,6 @@ func (d *Definitions) Merge(other ...Definitions) {
 
 // MarshalJSON implements the json.Marshaler interface.
 func (d Definitions) MarshalJSON() ([]byte, error) {
-	fmt.Println("Got here!", d.defs)
 	return json.Marshal(d.defs)
 }
 
