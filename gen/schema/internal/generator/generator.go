@@ -49,6 +49,8 @@ func (g *Generator) Run(ctx context.Context, methods []openrpc.Method) error {
 			return err
 		}
 
+		data = append(data, '\n')
+
 		if err := os.WriteFile(filepath.Join("data", method.Name()+".json"), data, 0o600); err != nil {
 			return err
 		}
