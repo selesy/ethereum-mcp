@@ -6,7 +6,7 @@ import (
 	"maps"
 	"strings"
 
-	"github.com/invopop/jsonschema"
+	"github.com/selesy/jsonschema"
 )
 
 // Definitions is a managed set of jsonschema.Schema values referenced

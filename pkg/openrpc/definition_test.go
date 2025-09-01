@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/invopop/jsonschema"
 	"github.com/invopop/yaml"
+	"github.com/selesy/jsonschema"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"gotest.tools/v3/golden"

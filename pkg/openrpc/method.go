@@ -5,7 +5,7 @@ import (
 	"errors"
 	"strings"
 
-	"github.com/invopop/jsonschema"
+	"github.com/selesy/jsonschema"
 )
 
 // Method is an idempotent representation of an OpenRPC method.  Only the
