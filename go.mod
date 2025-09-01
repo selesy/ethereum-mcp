@@ -25,7 +25,7 @@ require (
 	github.com/lmittmann/tint v1.1.2 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
-	github.com/selesy/ethereum-mcp/gen v0.0.0-20250901143222-ec5e821f1804 // indirect
+	github.com/selesy/ethereum-mcp/gen v0.0.0-20250901154801-d4c233633a9f // indirect
 	github.com/wk8/go-ordered-map/v2 v2.1.8 // indirect
 	golang.org/x/mod v0.22.0 // indirect
 	golang.org/x/sync v0.10.0 // indirect

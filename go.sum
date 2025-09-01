@@ -26,8 +26,8 @@ github.com/mailru/easyjson v0.7.7 h1:UGYAvKxe3sBsEDzO8ZeWOSlIQfWFlxbzLZe7hwFURr0
 github.com/mailru/easyjson v0.7.7/go.mod h1:xzfreul335JAWq5oZzymOObrkdz5UnU4kGfJJLY9Nlc=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
-github.com/selesy/ethereum-mcp/gen v0.0.0-20250901143222-ec5e821f1804 h1:Kx1a+kybWAsa2omYizbW39ly8Ijs6dVcAeGsba/joMw=
-github.com/selesy/ethereum-mcp/gen v0.0.0-20250901143222-ec5e821f1804/go.mod h1:spQUq+TrIVOj+XfbHVOZwB+T9WYcJ3+mAdM0vsUDe8E=
+github.com/selesy/ethereum-mcp/gen v0.0.0-20250901154801-d4c233633a9f h1:P2q1cgIP7V0nt495obAAh7rI5te82hu9KyZrQnwJ4I4=
+github.com/selesy/ethereum-mcp/gen v0.0.0-20250901154801-d4c233633a9f/go.mod h1:spQUq+TrIVOj+XfbHVOZwB+T9WYcJ3+mAdM0vsUDe8E=
 github.com/selesy/jsonschema v0.14.0-rc1 h1:rGdpQeWFk76uxpmOx0lrA9Lwb+eVTBPZ6io5IC7rVIk=
 github.com/selesy/jsonschema v0.14.0-rc1/go.mod h1:QgbdOu2y8GVkNvmK+npB2dvXlbdEL0eQ2LrRcHRTcKU=
 github.com/stretchr/testify v1.11.0 h1:ib4sjIrwZKxE5u/Japgo/7SJV3PvgjGiRNAvTVGqQl8=
