@@ -7,7 +7,7 @@ require (
 	github.com/google/go-github/v74 v74.0.0
 	github.com/invopop/yaml v0.3.1
 	github.com/lmittmann/tint v1.1.2
-	github.com/selesy/ethereum-mcp v0.0.0-20250826232357-b0af99e94c67
+	github.com/selesy/ethereum-mcp v0.0.1
 	github.com/stretchr/testify v1.11.0
 )
 
@@ -16,9 +16,9 @@ require (
 	github.com/buger/jsonparser v1.1.1 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
-	github.com/invopop/jsonschema v0.13.0 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
+	github.com/selesy/jsonschema v0.14.0-rc1 // indirect
 	github.com/wk8/go-ordered-map/v2 v2.1.8 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
