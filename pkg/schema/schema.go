@@ -1,4 +1,4 @@
-//go:generate go run ../../gen/schema/
+//go:generate go tool schema
 
 // Package schema contains the "raw" JSONSchema source for each OpenRPC
 // method defined by Ethereum's execution APIs.
