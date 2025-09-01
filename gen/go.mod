@@ -7,7 +7,7 @@ require (
 	github.com/google/go-github/v74 v74.0.0
 	github.com/invopop/yaml v0.3.1
 	github.com/lmittmann/tint v1.1.2
-	github.com/selesy/ethereum-mcp v0.0.1
+	github.com/selesy/ethereum-mcp v0.0.0-20250901155032-47d7fb5164a7
 	github.com/stretchr/testify v1.11.0
 )
 
