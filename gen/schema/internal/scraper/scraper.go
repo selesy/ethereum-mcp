@@ -28,7 +28,7 @@ func New(log *slog.Logger) *Scraper {
 	cl := github.NewClient(nil)
 
 	// TODO: get this env var from config
-	tkn, ok := os.LookupEnv("RELEASE_PLEASE_PAT")
+	tkn, ok := os.LookupEnv("GITHUB_TOKEN")
 	if ok {
 		cl = cl.WithAuthToken(tkn)
 	}
