@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.0](https://github.com/selesy/ethereum-mcp/compare/v0.1.1...v0.2.0) (2025-09-02)
+
+
+### Features
+
+* **gen:** expand generator to create schemas and tools ([eb764f9](https://github.com/selesy/ethereum-mcp/commit/eb764f97a8e872f2d7a66043d51d7455878bb58a))
+* **gen:** expand generator to create schemas and tools ([5320e1f](https://github.com/selesy/ethereum-mcp/commit/5320e1f1c10b38223940f04b8f8e478c12b90c10))
+
 ## [0.1.1](https://github.com/selesy/ethereum-mcp/compare/v0.1.0...v0.1.1) (2025-09-02)
 
 
