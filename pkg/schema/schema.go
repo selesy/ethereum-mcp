@@ -4,9 +4,11 @@
 // method defined by Ethereum's execution APIs.
 package schema
 
+import "encoding/json"
+
 // Schema returns the JSONSchema source for the Ethereum method with the
 // matching name.
-func Schema(name string) (string, bool) {
+func Schema(name string) (json.RawMessage, bool) {
 	schema, ok := Schemas()[name]
 
 	return schema, ok
