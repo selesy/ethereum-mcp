@@ -7,386 +7,386 @@ import (
 	"encoding/json"
 )
 
-// DebugGetRawHeaderSchemaJSON returns an RLP-encoded header.
+// DebugGetRawHeaderSchema returns an RLP-encoded header.
 //
 //go:embed data/debug_getRawHeader.json
-var DebugGetRawHeaderSchemaJSON json.RawMessage
+var DebugGetRawHeaderSchema json.RawMessage
 
-// DebugGetRawBlockSchemaJSON returns an RLP-encoded block.
+// DebugGetRawBlockSchema returns an RLP-encoded block.
 //
 //go:embed data/debug_getRawBlock.json
-var DebugGetRawBlockSchemaJSON json.RawMessage
+var DebugGetRawBlockSchema json.RawMessage
 
-// DebugGetRawTransactionSchemaJSON returns an array of EIP-2718 binary-encoded transactions.
+// DebugGetRawTransactionSchema returns an array of EIP-2718 binary-encoded transactions.
 //
 //go:embed data/debug_getRawTransaction.json
-var DebugGetRawTransactionSchemaJSON json.RawMessage
+var DebugGetRawTransactionSchema json.RawMessage
 
-// DebugGetRawReceiptsSchemaJSON returns an array of EIP-2718 binary-encoded receipts.
+// DebugGetRawReceiptsSchema returns an array of EIP-2718 binary-encoded receipts.
 //
 //go:embed data/debug_getRawReceipts.json
-var DebugGetRawReceiptsSchemaJSON json.RawMessage
+var DebugGetRawReceiptsSchema json.RawMessage
 
-// DebugGetBadBlocksSchemaJSON returns an array of recent bad blocks that the client has seen on the network.
+// DebugGetBadBlocksSchema returns an array of recent bad blocks that the client has seen on the network.
 //
 //go:embed data/debug_getBadBlocks.json
-var DebugGetBadBlocksSchemaJSON json.RawMessage
+var DebugGetBadBlocksSchema json.RawMessage
 
-// EngineGetBlobsV1SchemaJSON fetches blobs from the blob pool
+// EngineGetBlobsV1Schema fetches blobs from the blob pool
 //
 //go:embed data/engine_getBlobsV1.json
-var EngineGetBlobsV1SchemaJSON json.RawMessage
+var EngineGetBlobsV1Schema json.RawMessage
 
-// EngineGetBlobsV2SchemaJSON fetch blobs from the blob mempool
+// EngineGetBlobsV2Schema fetch blobs from the blob mempool
 //
 //go:embed data/engine_getBlobsV2.json
-var EngineGetBlobsV2SchemaJSON json.RawMessage
+var EngineGetBlobsV2Schema json.RawMessage
 
-// EngineExchangeCapabilitiesSchemaJSON exchanges list of supported Engine API methods
+// EngineExchangeCapabilitiesSchema exchanges list of supported Engine API methods
 //
 //go:embed data/engine_exchangeCapabilities.json
-var EngineExchangeCapabilitiesSchemaJSON json.RawMessage
+var EngineExchangeCapabilitiesSchema json.RawMessage
 
-// EngineForkchoiceUpdatedV1SchemaJSON updates the forkchoice state
+// EngineForkchoiceUpdatedV1Schema updates the forkchoice state
 //
 //go:embed data/engine_forkchoiceUpdatedV1.json
-var EngineForkchoiceUpdatedV1SchemaJSON json.RawMessage
+var EngineForkchoiceUpdatedV1Schema json.RawMessage
 
-// EngineForkchoiceUpdatedV2SchemaJSON updates the forkchoice state
+// EngineForkchoiceUpdatedV2Schema updates the forkchoice state
 //
 //go:embed data/engine_forkchoiceUpdatedV2.json
-var EngineForkchoiceUpdatedV2SchemaJSON json.RawMessage
+var EngineForkchoiceUpdatedV2Schema json.RawMessage
 
-// EngineForkchoiceUpdatedV3SchemaJSON updates the forkchoice state
+// EngineForkchoiceUpdatedV3Schema updates the forkchoice state
 //
 //go:embed data/engine_forkchoiceUpdatedV3.json
-var EngineForkchoiceUpdatedV3SchemaJSON json.RawMessage
+var EngineForkchoiceUpdatedV3Schema json.RawMessage
 
-// EngineNewPayloadV1SchemaJSON runs execution payload validation
+// EngineNewPayloadV1Schema runs execution payload validation
 //
 //go:embed data/engine_newPayloadV1.json
-var EngineNewPayloadV1SchemaJSON json.RawMessage
+var EngineNewPayloadV1Schema json.RawMessage
 
-// EngineNewPayloadV2SchemaJSON runs execution payload validation
+// EngineNewPayloadV2Schema runs execution payload validation
 //
 //go:embed data/engine_newPayloadV2.json
-var EngineNewPayloadV2SchemaJSON json.RawMessage
+var EngineNewPayloadV2Schema json.RawMessage
 
-// EngineNewPayloadV3SchemaJSON runs execution payload validation
+// EngineNewPayloadV3Schema runs execution payload validation
 //
 //go:embed data/engine_newPayloadV3.json
-var EngineNewPayloadV3SchemaJSON json.RawMessage
+var EngineNewPayloadV3Schema json.RawMessage
 
-// EngineNewPayloadV4SchemaJSON runs execution payload validation
+// EngineNewPayloadV4Schema runs execution payload validation
 //
 //go:embed data/engine_newPayloadV4.json
-var EngineNewPayloadV4SchemaJSON json.RawMessage
+var EngineNewPayloadV4Schema json.RawMessage
 
-// EngineGetPayloadV1SchemaJSON obtains execution payload from payload build process
+// EngineGetPayloadV1Schema obtains execution payload from payload build process
 //
 //go:embed data/engine_getPayloadV1.json
-var EngineGetPayloadV1SchemaJSON json.RawMessage
+var EngineGetPayloadV1Schema json.RawMessage
 
-// EngineGetPayloadV2SchemaJSON obtains execution payload from payload build process
+// EngineGetPayloadV2Schema obtains execution payload from payload build process
 //
 //go:embed data/engine_getPayloadV2.json
-var EngineGetPayloadV2SchemaJSON json.RawMessage
+var EngineGetPayloadV2Schema json.RawMessage
 
-// EngineGetPayloadV3SchemaJSON obtains execution payload from payload build process
+// EngineGetPayloadV3Schema obtains execution payload from payload build process
 //
 //go:embed data/engine_getPayloadV3.json
-var EngineGetPayloadV3SchemaJSON json.RawMessage
+var EngineGetPayloadV3Schema json.RawMessage
 
-// EngineGetPayloadV4SchemaJSON obtains execution payload from payload build process
+// EngineGetPayloadV4Schema obtains execution payload from payload build process
 //
 //go:embed data/engine_getPayloadV4.json
-var EngineGetPayloadV4SchemaJSON json.RawMessage
+var EngineGetPayloadV4Schema json.RawMessage
 
-// EngineGetPayloadV5SchemaJSON obtains execution payload from payload build process
+// EngineGetPayloadV5Schema obtains execution payload from payload build process
 //
 //go:embed data/engine_getPayloadV5.json
-var EngineGetPayloadV5SchemaJSON json.RawMessage
+var EngineGetPayloadV5Schema json.RawMessage
 
-// EngineGetPayloadBodiesByHashV1SchemaJSON given block hashes returns bodies of the corresponding execution payloads
+// EngineGetPayloadBodiesByHashV1Schema given block hashes returns bodies of the corresponding execution payloads
 //
 //go:embed data/engine_getPayloadBodiesByHashV1.json
-var EngineGetPayloadBodiesByHashV1SchemaJSON json.RawMessage
+var EngineGetPayloadBodiesByHashV1Schema json.RawMessage
 
-// EngineGetPayloadBodiesByRangeV1SchemaJSON given a range of block numbers returns bodies of the corresponding execution payloads
+// EngineGetPayloadBodiesByRangeV1Schema given a range of block numbers returns bodies of the corresponding execution payloads
 //
 //go:embed data/engine_getPayloadBodiesByRangeV1.json
-var EngineGetPayloadBodiesByRangeV1SchemaJSON json.RawMessage
+var EngineGetPayloadBodiesByRangeV1Schema json.RawMessage
 
-// EngineExchangeTransitionConfigurationV1SchemaJSON exchanges transition configuration
+// EngineExchangeTransitionConfigurationV1Schema exchanges transition configuration
 //
 //go:embed data/engine_exchangeTransitionConfigurationV1.json
-var EngineExchangeTransitionConfigurationV1SchemaJSON json.RawMessage
+var EngineExchangeTransitionConfigurationV1Schema json.RawMessage
 
-// EthGetBlockByHashSchemaJSON returns information about a block by hash.
+// EthGetBlockByHashSchema returns information about a block by hash.
 //
 //go:embed data/eth_getBlockByHash.json
-var EthGetBlockByHashSchemaJSON json.RawMessage
+var EthGetBlockByHashSchema json.RawMessage
 
-// EthGetBlockByNumberSchemaJSON returns information about a block by number.
+// EthGetBlockByNumberSchema returns information about a block by number.
 //
 //go:embed data/eth_getBlockByNumber.json
-var EthGetBlockByNumberSchemaJSON json.RawMessage
+var EthGetBlockByNumberSchema json.RawMessage
 
-// EthGetBlockTransactionCountByHashSchemaJSON returns the number of transactions in a block from a block matching the given block hash.
+// EthGetBlockTransactionCountByHashSchema returns the number of transactions in a block from a block matching the given block hash.
 //
 //go:embed data/eth_getBlockTransactionCountByHash.json
-var EthGetBlockTransactionCountByHashSchemaJSON json.RawMessage
+var EthGetBlockTransactionCountByHashSchema json.RawMessage
 
-// EthGetBlockTransactionCountByNumberSchemaJSON returns the number of transactions in a block matching the given block number.
+// EthGetBlockTransactionCountByNumberSchema returns the number of transactions in a block matching the given block number.
 //
 //go:embed data/eth_getBlockTransactionCountByNumber.json
-var EthGetBlockTransactionCountByNumberSchemaJSON json.RawMessage
+var EthGetBlockTransactionCountByNumberSchema json.RawMessage
 
-// EthGetUncleCountByBlockHashSchemaJSON returns the number of uncles in a block from a block matching the given block hash.
+// EthGetUncleCountByBlockHashSchema returns the number of uncles in a block from a block matching the given block hash.
 //
 //go:embed data/eth_getUncleCountByBlockHash.json
-var EthGetUncleCountByBlockHashSchemaJSON json.RawMessage
+var EthGetUncleCountByBlockHashSchema json.RawMessage
 
-// EthGetUncleCountByBlockNumberSchemaJSON returns the number of transactions in a block matching the given block number.
+// EthGetUncleCountByBlockNumberSchema returns the number of transactions in a block matching the given block number.
 //
 //go:embed data/eth_getUncleCountByBlockNumber.json
-var EthGetUncleCountByBlockNumberSchemaJSON json.RawMessage
+var EthGetUncleCountByBlockNumberSchema json.RawMessage
 
-// EthGetBlockReceiptsSchemaJSON returns the receipts of a block by number or hash.
+// EthGetBlockReceiptsSchema returns the receipts of a block by number or hash.
 //
 //go:embed data/eth_getBlockReceipts.json
-var EthGetBlockReceiptsSchemaJSON json.RawMessage
+var EthGetBlockReceiptsSchema json.RawMessage
 
-// EthChainIdSchemaJSON returns the chain ID of the current network.
+// EthChainIdSchema returns the chain ID of the current network.
 //
 //go:embed data/eth_chainId.json
-var EthChainIdSchemaJSON json.RawMessage
+var EthChainIdSchema json.RawMessage
 
-// EthSyncingSchemaJSON returns an object with data about the sync status or false.
+// EthSyncingSchema returns an object with data about the sync status or false.
 //
 //go:embed data/eth_syncing.json
-var EthSyncingSchemaJSON json.RawMessage
+var EthSyncingSchema json.RawMessage
 
-// EthCoinbaseSchemaJSON returns the client coinbase address.
+// EthCoinbaseSchema returns the client coinbase address.
 //
 //go:embed data/eth_coinbase.json
-var EthCoinbaseSchemaJSON json.RawMessage
+var EthCoinbaseSchema json.RawMessage
 
-// EthAccountsSchemaJSON returns a list of addresses owned by client.
+// EthAccountsSchema returns a list of addresses owned by client.
 //
 //go:embed data/eth_accounts.json
-var EthAccountsSchemaJSON json.RawMessage
+var EthAccountsSchema json.RawMessage
 
-// EthBlockNumberSchemaJSON returns the number of most recent block.
+// EthBlockNumberSchema returns the number of most recent block.
 //
 //go:embed data/eth_blockNumber.json
-var EthBlockNumberSchemaJSON json.RawMessage
+var EthBlockNumberSchema json.RawMessage
 
-// EthCallSchemaJSON executes a new message call immediately without creating a transaction on the block chain.
+// EthCallSchema executes a new message call immediately without creating a transaction on the block chain.
 //
 //go:embed data/eth_call.json
-var EthCallSchemaJSON json.RawMessage
+var EthCallSchema json.RawMessage
 
-// EthEstimateGasSchemaJSON generates and returns an estimate of how much gas is necessary to allow the transaction to complete.
+// EthEstimateGasSchema generates and returns an estimate of how much gas is necessary to allow the transaction to complete.
 //
 //go:embed data/eth_estimateGas.json
-var EthEstimateGasSchemaJSON json.RawMessage
+var EthEstimateGasSchema json.RawMessage
 
-// EthCreateAccessListSchemaJSON generates an access list for a transaction.
+// EthCreateAccessListSchema generates an access list for a transaction.
 //
 //go:embed data/eth_createAccessList.json
-var EthCreateAccessListSchemaJSON json.RawMessage
+var EthCreateAccessListSchema json.RawMessage
 
-// EthSimulateV1SchemaJSON executes a sequence of message calls building on each other's state without creating transactions on the block chain, optionally overriding block and state data
+// EthSimulateV1Schema executes a sequence of message calls building on each other's state without creating transactions on the block chain, optionally overriding block and state data
 //
 //go:embed data/eth_simulateV1.json
-var EthSimulateV1SchemaJSON json.RawMessage
+var EthSimulateV1Schema json.RawMessage
 
-// EthGasPriceSchemaJSON returns the current price per gas in wei.
+// EthGasPriceSchema returns the current price per gas in wei.
 //
 //go:embed data/eth_gasPrice.json
-var EthGasPriceSchemaJSON json.RawMessage
+var EthGasPriceSchema json.RawMessage
 
-// EthBlobBaseFeeSchemaJSON returns the base fee per blob gas in wei.
+// EthBlobBaseFeeSchema returns the base fee per blob gas in wei.
 //
 //go:embed data/eth_blobBaseFee.json
-var EthBlobBaseFeeSchemaJSON json.RawMessage
+var EthBlobBaseFeeSchema json.RawMessage
 
-// EthMaxPriorityFeePerGasSchemaJSON returns the current maxPriorityFeePerGas per gas in wei.
+// EthMaxPriorityFeePerGasSchema returns the current maxPriorityFeePerGas per gas in wei.
 //
 //go:embed data/eth_maxPriorityFeePerGas.json
-var EthMaxPriorityFeePerGasSchemaJSON json.RawMessage
+var EthMaxPriorityFeePerGasSchema json.RawMessage
 
-// EthFeeHistorySchemaJSON returns transaction base fee per gas and effective priority fee per gas for the requested/supported block range.
+// EthFeeHistorySchema returns transaction base fee per gas and effective priority fee per gas for the requested/supported block range.
 //
 //go:embed data/eth_feeHistory.json
-var EthFeeHistorySchemaJSON json.RawMessage
+var EthFeeHistorySchema json.RawMessage
 
-// EthNewFilterSchemaJSON install a log filter in the server, allowing for later polling. Registers client interest in logs matching the filter, and returns an identifier.
+// EthNewFilterSchema install a log filter in the server, allowing for later polling. Registers client interest in logs matching the filter, and returns an identifier.
 //
 //go:embed data/eth_newFilter.json
-var EthNewFilterSchemaJSON json.RawMessage
+var EthNewFilterSchema json.RawMessage
 
-// EthNewBlockFilterSchemaJSON creates a filter in the node, allowing for later polling. Registers client interest in new blocks, and returns an identifier.
+// EthNewBlockFilterSchema creates a filter in the node, allowing for later polling. Registers client interest in new blocks, and returns an identifier.
 //
 //go:embed data/eth_newBlockFilter.json
-var EthNewBlockFilterSchemaJSON json.RawMessage
+var EthNewBlockFilterSchema json.RawMessage
 
-// EthNewPendingTransactionFilterSchemaJSON creates a filter in the node, allowing for later polling. Registers client interest in new transactions, and returns an identifier.
+// EthNewPendingTransactionFilterSchema creates a filter in the node, allowing for later polling. Registers client interest in new transactions, and returns an identifier.
 //
 //go:embed data/eth_newPendingTransactionFilter.json
-var EthNewPendingTransactionFilterSchemaJSON json.RawMessage
+var EthNewPendingTransactionFilterSchema json.RawMessage
 
-// EthUninstallFilterSchemaJSON uninstalls a filter with given id.
+// EthUninstallFilterSchema uninstalls a filter with given id.
 //
 //go:embed data/eth_uninstallFilter.json
-var EthUninstallFilterSchemaJSON json.RawMessage
+var EthUninstallFilterSchema json.RawMessage
 
-// EthGetFilterChangesSchemaJSON polling method for the filter with the given ID (created using `eth_newFilter`). Returns an array of logs, block hashes, or transaction hashes since last poll, depending on the installed filter.
+// EthGetFilterChangesSchema polling method for the filter with the given ID (created using `eth_newFilter`). Returns an array of logs, block hashes, or transaction hashes since last poll, depending on the installed filter.
 //
 //go:embed data/eth_getFilterChanges.json
-var EthGetFilterChangesSchemaJSON json.RawMessage
+var EthGetFilterChangesSchema json.RawMessage
 
-// EthGetFilterLogsSchemaJSON returns an array of all logs matching the filter with the given ID (created using `eth_newFilter`).
+// EthGetFilterLogsSchema returns an array of all logs matching the filter with the given ID (created using `eth_newFilter`).
 //
 //go:embed data/eth_getFilterLogs.json
-var EthGetFilterLogsSchemaJSON json.RawMessage
+var EthGetFilterLogsSchema json.RawMessage
 
-// EthGetLogsSchemaJSON returns an array of all logs matching the specified filter.
+// EthGetLogsSchema returns an array of all logs matching the specified filter.
 //
 //go:embed data/eth_getLogs.json
-var EthGetLogsSchemaJSON json.RawMessage
+var EthGetLogsSchema json.RawMessage
 
-// EthSignSchemaJSON returns an EIP-191 signature over the provided data.
+// EthSignSchema returns an EIP-191 signature over the provided data.
 //
 //go:embed data/eth_sign.json
-var EthSignSchemaJSON json.RawMessage
+var EthSignSchema json.RawMessage
 
-// EthSignTransactionSchemaJSON returns an RLP encoded transaction signed by the specified account.
+// EthSignTransactionSchema returns an RLP encoded transaction signed by the specified account.
 //
 //go:embed data/eth_signTransaction.json
-var EthSignTransactionSchemaJSON json.RawMessage
+var EthSignTransactionSchema json.RawMessage
 
-// EthGetBalanceSchemaJSON returns the balance of the account of given address.
+// EthGetBalanceSchema returns the balance of the account of given address.
 //
 //go:embed data/eth_getBalance.json
-var EthGetBalanceSchemaJSON json.RawMessage
+var EthGetBalanceSchema json.RawMessage
 
-// EthGetStorageAtSchemaJSON returns the value from a storage position at a given address.
+// EthGetStorageAtSchema returns the value from a storage position at a given address.
 //
 //go:embed data/eth_getStorageAt.json
-var EthGetStorageAtSchemaJSON json.RawMessage
+var EthGetStorageAtSchema json.RawMessage
 
-// EthGetTransactionCountSchemaJSON returns the nonce of an account in the state. NOTE: The name eth_getTransactionCount reflects the historical fact that an account's nonce and sent transaction count were the same. After the Pectra fork, with the inclusion of EIP-7702, this is no longer true.
+// EthGetTransactionCountSchema returns the nonce of an account in the state. NOTE: The name eth_getTransactionCount reflects the historical fact that an account's nonce and sent transaction count were the same. After the Pectra fork, with the inclusion of EIP-7702, this is no longer true.
 //
 //go:embed data/eth_getTransactionCount.json
-var EthGetTransactionCountSchemaJSON json.RawMessage
+var EthGetTransactionCountSchema json.RawMessage
 
-// EthGetCodeSchemaJSON returns code at a given address.
+// EthGetCodeSchema returns code at a given address.
 //
 //go:embed data/eth_getCode.json
-var EthGetCodeSchemaJSON json.RawMessage
+var EthGetCodeSchema json.RawMessage
 
-// EthGetProofSchemaJSON returns the merkle proof for a given account and optionally some storage keys.
+// EthGetProofSchema returns the merkle proof for a given account and optionally some storage keys.
 //
 //go:embed data/eth_getProof.json
-var EthGetProofSchemaJSON json.RawMessage
+var EthGetProofSchema json.RawMessage
 
-// EthSendTransactionSchemaJSON signs and submits a transaction.
+// EthSendTransactionSchema signs and submits a transaction.
 //
 //go:embed data/eth_sendTransaction.json
-var EthSendTransactionSchemaJSON json.RawMessage
+var EthSendTransactionSchema json.RawMessage
 
-// EthSendRawTransactionSchemaJSON submits a raw transaction. You can create and sign a transaction externally using a library such as [web3.js](https://web3js.readthedocs.io/) or [ethers.js](https://docs.ethers.org/). For [EIP-4844](https://eips.ethereum.org/EIPS/eip-4844) transactions, the raw form must be the network form. This means it includes the blobs, KZG commitments, and KZG proofs. For [EIP-7594](https://eips.ethereum.org/EIPS/eip-7594) transactions, the raw format must be the network form. This means it includes the blobs, KZG commitments, and cell proofs. The logic for handling the new transaction during fork boundaries are 1. When receiving an encoded transaction with cell proofs before the PeerDAS fork activates, we reject it. Only blob proofs are accepted into the pool. 2. At the time of fork activation, the implementer could (not mandatory) - Drop all old-format transactions - Convert old proofs to new format (computationally expensive) - Convert only when including in a locally produced block 3. After the fork has activated, only txs with cell proofs are accepted via p2p relay. 4. On RPC (eth_sendRawTransaction), txs with blob proofs may still be accepted and will be auto-converted by the node. At implementer discretion, this facility can be deprecated later when users have switched to new client libraries that can create cell proofs.
+// EthSendRawTransactionSchema submits a raw transaction. You can create and sign a transaction externally using a library such as [web3.js](https://web3js.readthedocs.io/) or [ethers.js](https://docs.ethers.org/). For [EIP-4844](https://eips.ethereum.org/EIPS/eip-4844) transactions, the raw form must be the network form. This means it includes the blobs, KZG commitments, and KZG proofs. For [EIP-7594](https://eips.ethereum.org/EIPS/eip-7594) transactions, the raw format must be the network form. This means it includes the blobs, KZG commitments, and cell proofs. The logic for handling the new transaction during fork boundaries are 1. When receiving an encoded transaction with cell proofs before the PeerDAS fork activates, we reject it. Only blob proofs are accepted into the pool. 2. At the time of fork activation, the implementer could (not mandatory) - Drop all old-format transactions - Convert old proofs to new format (computationally expensive) - Convert only when including in a locally produced block 3. After the fork has activated, only txs with cell proofs are accepted via p2p relay. 4. On RPC (eth_sendRawTransaction), txs with blob proofs may still be accepted and will be auto-converted by the node. At implementer discretion, this facility can be deprecated later when users have switched to new client libraries that can create cell proofs.
 //
 //go:embed data/eth_sendRawTransaction.json
-var EthSendRawTransactionSchemaJSON json.RawMessage
+var EthSendRawTransactionSchema json.RawMessage
 
-// EthGetTransactionByHashSchemaJSON returns the information about a transaction requested by transaction hash.
+// EthGetTransactionByHashSchema returns the information about a transaction requested by transaction hash.
 //
 //go:embed data/eth_getTransactionByHash.json
-var EthGetTransactionByHashSchemaJSON json.RawMessage
+var EthGetTransactionByHashSchema json.RawMessage
 
-// EthGetTransactionByBlockHashAndIndexSchemaJSON returns information about a transaction by block hash and transaction index position.
+// EthGetTransactionByBlockHashAndIndexSchema returns information about a transaction by block hash and transaction index position.
 //
 //go:embed data/eth_getTransactionByBlockHashAndIndex.json
-var EthGetTransactionByBlockHashAndIndexSchemaJSON json.RawMessage
+var EthGetTransactionByBlockHashAndIndexSchema json.RawMessage
 
-// EthGetTransactionByBlockNumberAndIndexSchemaJSON returns information about a transaction by block number and transaction index position.
+// EthGetTransactionByBlockNumberAndIndexSchema returns information about a transaction by block number and transaction index position.
 //
 //go:embed data/eth_getTransactionByBlockNumberAndIndex.json
-var EthGetTransactionByBlockNumberAndIndexSchemaJSON json.RawMessage
+var EthGetTransactionByBlockNumberAndIndexSchema json.RawMessage
 
-// EthGetTransactionReceiptSchemaJSON returns the receipt of a transaction by transaction hash.
+// EthGetTransactionReceiptSchema returns the receipt of a transaction by transaction hash.
 //
 //go:embed data/eth_getTransactionReceipt.json
-var EthGetTransactionReceiptSchemaJSON json.RawMessage
+var EthGetTransactionReceiptSchema json.RawMessage
 
 // Schemas returns a map relating schema names to the associated Method.
 func Schemas() map[string]json.RawMessage {
 	return map[string]json.RawMessage{
-		"debug_getBadBlocks":                       DebugGetBadBlocksSchemaJSON,
-		"debug_getRawBlock":                        DebugGetRawBlockSchemaJSON,
-		"debug_getRawHeader":                       DebugGetRawHeaderSchemaJSON,
-		"debug_getRawReceipts":                     DebugGetRawReceiptsSchemaJSON,
-		"debug_getRawTransaction":                  DebugGetRawTransactionSchemaJSON,
-		"engine_exchangeCapabilities":              EngineExchangeCapabilitiesSchemaJSON,
-		"engine_exchangeTransitionConfigurationV1": EngineExchangeTransitionConfigurationV1SchemaJSON,
-		"engine_forkchoiceUpdatedV1":               EngineForkchoiceUpdatedV1SchemaJSON,
-		"engine_forkchoiceUpdatedV2":               EngineForkchoiceUpdatedV2SchemaJSON,
-		"engine_forkchoiceUpdatedV3":               EngineForkchoiceUpdatedV3SchemaJSON,
-		"engine_getBlobsV1":                        EngineGetBlobsV1SchemaJSON,
-		"engine_getBlobsV2":                        EngineGetBlobsV2SchemaJSON,
-		"engine_getPayloadBodiesByHashV1":          EngineGetPayloadBodiesByHashV1SchemaJSON,
-		"engine_getPayloadBodiesByRangeV1":         EngineGetPayloadBodiesByRangeV1SchemaJSON,
-		"engine_getPayloadV1":                      EngineGetPayloadV1SchemaJSON,
-		"engine_getPayloadV2":                      EngineGetPayloadV2SchemaJSON,
-		"engine_getPayloadV3":                      EngineGetPayloadV3SchemaJSON,
-		"engine_getPayloadV4":                      EngineGetPayloadV4SchemaJSON,
-		"engine_getPayloadV5":                      EngineGetPayloadV5SchemaJSON,
-		"engine_newPayloadV1":                      EngineNewPayloadV1SchemaJSON,
-		"engine_newPayloadV2":                      EngineNewPayloadV2SchemaJSON,
-		"engine_newPayloadV3":                      EngineNewPayloadV3SchemaJSON,
-		"engine_newPayloadV4":                      EngineNewPayloadV4SchemaJSON,
-		"eth_accounts":                             EthAccountsSchemaJSON,
-		"eth_blobBaseFee":                          EthBlobBaseFeeSchemaJSON,
-		"eth_blockNumber":                          EthBlockNumberSchemaJSON,
-		"eth_call":                                 EthCallSchemaJSON,
-		"eth_chainId":                              EthChainIdSchemaJSON,
-		"eth_coinbase":                             EthCoinbaseSchemaJSON,
-		"eth_createAccessList":                     EthCreateAccessListSchemaJSON,
-		"eth_estimateGas":                          EthEstimateGasSchemaJSON,
-		"eth_feeHistory":                           EthFeeHistorySchemaJSON,
-		"eth_gasPrice":                             EthGasPriceSchemaJSON,
-		"eth_getBalance":                           EthGetBalanceSchemaJSON,
-		"eth_getBlockByHash":                       EthGetBlockByHashSchemaJSON,
-		"eth_getBlockByNumber":                     EthGetBlockByNumberSchemaJSON,
-		"eth_getBlockReceipts":                     EthGetBlockReceiptsSchemaJSON,
-		"eth_getBlockTransactionCountByHash":       EthGetBlockTransactionCountByHashSchemaJSON,
-		"eth_getBlockTransactionCountByNumber":     EthGetBlockTransactionCountByNumberSchemaJSON,
-		"eth_getCode":                              EthGetCodeSchemaJSON,
-		"eth_getFilterChanges":                     EthGetFilterChangesSchemaJSON,
-		"eth_getFilterLogs":                        EthGetFilterLogsSchemaJSON,
-		"eth_getLogs":                              EthGetLogsSchemaJSON,
-		"eth_getProof":                             EthGetProofSchemaJSON,
-		"eth_getStorageAt":                         EthGetStorageAtSchemaJSON,
-		"eth_getTransactionByBlockHashAndIndex":    EthGetTransactionByBlockHashAndIndexSchemaJSON,
-		"eth_getTransactionByBlockNumberAndIndex":  EthGetTransactionByBlockNumberAndIndexSchemaJSON,
-		"eth_getTransactionByHash":                 EthGetTransactionByHashSchemaJSON,
-		"eth_getTransactionCount":                  EthGetTransactionCountSchemaJSON,
-		"eth_getTransactionReceipt":                EthGetTransactionReceiptSchemaJSON,
-		"eth_getUncleCountByBlockHash":             EthGetUncleCountByBlockHashSchemaJSON,
-		"eth_getUncleCountByBlockNumber":           EthGetUncleCountByBlockNumberSchemaJSON,
-		"eth_maxPriorityFeePerGas":                 EthMaxPriorityFeePerGasSchemaJSON,
-		"eth_newBlockFilter":                       EthNewBlockFilterSchemaJSON,
-		"eth_newFilter":                            EthNewFilterSchemaJSON,
-		"eth_newPendingTransactionFilter":          EthNewPendingTransactionFilterSchemaJSON,
-		"eth_sendRawTransaction":                   EthSendRawTransactionSchemaJSON,
-		"eth_sendTransaction":                      EthSendTransactionSchemaJSON,
-		"eth_sign":                                 EthSignSchemaJSON,
-		"eth_signTransaction":                      EthSignTransactionSchemaJSON,
-		"eth_simulateV1":                           EthSimulateV1SchemaJSON,
-		"eth_syncing":                              EthSyncingSchemaJSON,
-		"eth_uninstallFilter":                      EthUninstallFilterSchemaJSON,
+		"debug_getBadBlocks":                       DebugGetBadBlocksSchema,
+		"debug_getRawBlock":                        DebugGetRawBlockSchema,
+		"debug_getRawHeader":                       DebugGetRawHeaderSchema,
+		"debug_getRawReceipts":                     DebugGetRawReceiptsSchema,
+		"debug_getRawTransaction":                  DebugGetRawTransactionSchema,
+		"engine_exchangeCapabilities":              EngineExchangeCapabilitiesSchema,
+		"engine_exchangeTransitionConfigurationV1": EngineExchangeTransitionConfigurationV1Schema,
+		"engine_forkchoiceUpdatedV1":               EngineForkchoiceUpdatedV1Schema,
+		"engine_forkchoiceUpdatedV2":               EngineForkchoiceUpdatedV2Schema,
+		"engine_forkchoiceUpdatedV3":               EngineForkchoiceUpdatedV3Schema,
+		"engine_getBlobsV1":                        EngineGetBlobsV1Schema,
+		"engine_getBlobsV2":                        EngineGetBlobsV2Schema,
+		"engine_getPayloadBodiesByHashV1":          EngineGetPayloadBodiesByHashV1Schema,
+		"engine_getPayloadBodiesByRangeV1":         EngineGetPayloadBodiesByRangeV1Schema,
+		"engine_getPayloadV1":                      EngineGetPayloadV1Schema,
+		"engine_getPayloadV2":                      EngineGetPayloadV2Schema,
+		"engine_getPayloadV3":                      EngineGetPayloadV3Schema,
+		"engine_getPayloadV4":                      EngineGetPayloadV4Schema,
+		"engine_getPayloadV5":                      EngineGetPayloadV5Schema,
+		"engine_newPayloadV1":                      EngineNewPayloadV1Schema,
+		"engine_newPayloadV2":                      EngineNewPayloadV2Schema,
+		"engine_newPayloadV3":                      EngineNewPayloadV3Schema,
+		"engine_newPayloadV4":                      EngineNewPayloadV4Schema,
+		"eth_accounts":                             EthAccountsSchema,
+		"eth_blobBaseFee":                          EthBlobBaseFeeSchema,
+		"eth_blockNumber":                          EthBlockNumberSchema,
+		"eth_call":                                 EthCallSchema,
+		"eth_chainId":                              EthChainIdSchema,
+		"eth_coinbase":                             EthCoinbaseSchema,
+		"eth_createAccessList":                     EthCreateAccessListSchema,
+		"eth_estimateGas":                          EthEstimateGasSchema,
+		"eth_feeHistory":                           EthFeeHistorySchema,
+		"eth_gasPrice":                             EthGasPriceSchema,
+		"eth_getBalance":                           EthGetBalanceSchema,
+		"eth_getBlockByHash":                       EthGetBlockByHashSchema,
+		"eth_getBlockByNumber":                     EthGetBlockByNumberSchema,
+		"eth_getBlockReceipts":                     EthGetBlockReceiptsSchema,
+		"eth_getBlockTransactionCountByHash":       EthGetBlockTransactionCountByHashSchema,
+		"eth_getBlockTransactionCountByNumber":     EthGetBlockTransactionCountByNumberSchema,
+		"eth_getCode":                              EthGetCodeSchema,
+		"eth_getFilterChanges":                     EthGetFilterChangesSchema,
+		"eth_getFilterLogs":                        EthGetFilterLogsSchema,
+		"eth_getLogs":                              EthGetLogsSchema,
+		"eth_getProof":                             EthGetProofSchema,
+		"eth_getStorageAt":                         EthGetStorageAtSchema,
+		"eth_getTransactionByBlockHashAndIndex":    EthGetTransactionByBlockHashAndIndexSchema,
+		"eth_getTransactionByBlockNumberAndIndex":  EthGetTransactionByBlockNumberAndIndexSchema,
+		"eth_getTransactionByHash":                 EthGetTransactionByHashSchema,
+		"eth_getTransactionCount":                  EthGetTransactionCountSchema,
+		"eth_getTransactionReceipt":                EthGetTransactionReceiptSchema,
+		"eth_getUncleCountByBlockHash":             EthGetUncleCountByBlockHashSchema,
+		"eth_getUncleCountByBlockNumber":           EthGetUncleCountByBlockNumberSchema,
+		"eth_maxPriorityFeePerGas":                 EthMaxPriorityFeePerGasSchema,
+		"eth_newBlockFilter":                       EthNewBlockFilterSchema,
+		"eth_newFilter":                            EthNewFilterSchema,
+		"eth_newPendingTransactionFilter":          EthNewPendingTransactionFilterSchema,
+		"eth_sendRawTransaction":                   EthSendRawTransactionSchema,
+		"eth_sendTransaction":                      EthSendTransactionSchema,
+		"eth_sign":                                 EthSignSchema,
+		"eth_signTransaction":                      EthSignTransactionSchema,
+		"eth_simulateV1":                           EthSimulateV1Schema,
+		"eth_syncing":                              EthSyncingSchema,
+		"eth_uninstallFilter":                      EthUninstallFilterSchema,
 	}
 }

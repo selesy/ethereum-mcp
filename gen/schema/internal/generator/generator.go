@@ -85,5 +85,5 @@ func goName(name string) string {
 		tkns[i] = strings.ToUpper(string(tkn[0])) + tkn[1:]
 	}
 
-	return strings.Join(tkns, "") + "SchemaJSON"
+	return strings.Join(tkns, "") + "Schema"
 }
