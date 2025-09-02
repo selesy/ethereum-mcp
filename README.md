@@ -1,11 +1,11 @@
 # ethereum-mcp
 
-![https://pkg.go.dev/github.com/selesy/ethereum-mcp](https://pkg.go.dev/badge/github.com/selesy/ethereum-mcp.svg)
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/selesy/ethereum-mcp/pre-commit.yaml)
-![https://goreportcard.com/report/github.com/selesy/ethereum-mcp](https://goreportcard.com/badge/github.com/selesy/ethereum-mcp)
-![https://github.com/RichardLitt/standard-readme](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)
-![GitHub License](https://img.shields.io/github/license/selesy/ethereum-mcp)
-![GitHub Release](https://img.shields.io/github/v/release/selesy/ethereum-mcp)
+[![https://pkg.go.dev/github.com/selesy/ethereum-mcp](https://pkg.go.dev/badge/github.com/selesy/ethereum-mcp.svg)](https://pkg.go.dev/github.com/selesy/ethereum-mcp)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/selesy/ethereum-mcp/pre-commit.yaml)](https://github.com/selesy/ethereum-mcp/actions)
+[![https://goreportcard.com/report/github.com/selesy/ethereum-mcp](https://goreportcard.com/badge/github.com/selesy/ethereum-mcp)](https://goreportcard.com/report/github.com/selesy/ethereum-mcp)
+[![https://github.com/RichardLitt/standard-readme](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+[![GitHub License](https://img.shields.io/github/license/selesy/ethereum-mcp)](https://github.com/selesy/ethereum-mcp/blob/main/LICENSE)
+[![GitHub Release](https://img.shields.io/github/v/release/selesy/ethereum-mcp)](https://github.com/selesy/ethereum-mcp/releases)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
 The `ethereum-mcp` library provides Go packages to make creating Model Context Protocol servers for Ethereum block-chains easier.
