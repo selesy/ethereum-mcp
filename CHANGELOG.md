@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/selesy/ethereum-mcp/compare/v0.3.0...v0.4.0) (2025-09-02)
+
+
+### Features
+
+* **gen:** generate method parameter lists ([ef3c458](https://github.com/selesy/ethereum-mcp/commit/ef3c458a3f69ae2b78217c30d74631a739704c4c))
+
 ## [0.3.0](https://github.com/selesy/ethereum-mcp/compare/v0.2.0...v0.3.0) (2025-09-02)
 
 
