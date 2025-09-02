@@ -6,6 +6,7 @@
 ![https://github.com/RichardLitt/standard-readme](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)
 ![GitHub License](https://img.shields.io/github/license/selesy/ethereum-mcp)
 ![GitHub Release](https://img.shields.io/github/v/release/selesy/ethereum-mcp)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
 The `ethereum-mcp` library provides Go packages to make creating Model Context Protocol servers for Ethereum block-chains easier.
 
@@ -21,7 +22,7 @@ go get github.com/selesy/ethereum-mcp
 
 The `/pkg/scheam` package provides "augmented" JSONSchema files and their associated Go embeddings in a format that's suitable for use as a "Raw Schema" with the `mcp-go` library's [`NewToolWithRawSchema`](https://pkg.go.dev/github.com/mark3labs/mcp-go/mcp#NewToolWithRawSchema) constructor.
 
-Full documentation for this library is available as [Go docs](https://pkg.go.dev/github.com/selesy/ethereum-mcp).
+Full documentation for this library including examples is available as [Go docs](https://pkg.go.dev/github.com/selesy/ethereum-mcp).
 
 ## Contributing
 
