@@ -6,7 +6,6 @@
 ### Features
 
 * **tool:** generate mcp.Tool definitions ([cc02671](https://github.com/selesy/ethereum-mcp/commit/cc02671e8a3d8b998d5e93671bf672236457b6ec))
-* **tool:** generate mcp.Tool definitions ([d093baf](https://github.com/selesy/ethereum-mcp/commit/d093baf8e4878921fa43af8db0a2d15ffcdcdd9c))
 
 ## [0.2.0](https://github.com/selesy/ethereum-mcp/compare/v0.1.1...v0.2.0) (2025-09-02)
 
