@@ -27,7 +27,7 @@ require (
 	github.com/lmittmann/tint v1.1.2 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
-	github.com/selesy/ethereum-mcp/gen v0.0.0-20250901154801-d4c233633a9f // indirect
+	github.com/selesy/ethereum-mcp/gen v0.1.0 // indirect
 	github.com/spf13/cast v1.7.1 // indirect
 	github.com/wk8/go-ordered-map/v2 v2.1.8 // indirect
 	github.com/yosida95/uritemplate/v3 v3.0.2 // indirect

@@ -38,8 +38,8 @@ github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZb
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/rogpeppe/go-internal v1.9.0 h1:73kH8U+JUqXU8lRuOHeVHaa/SZPifC7BkcraZVejAe8=
 github.com/rogpeppe/go-internal v1.9.0/go.mod h1:WtVeX8xhTBvf0smdhujwtBcq4Qrzq/fJaraNFVN+nFs=
-github.com/selesy/ethereum-mcp/gen v0.0.0-20250901154801-d4c233633a9f h1:P2q1cgIP7V0nt495obAAh7rI5te82hu9KyZrQnwJ4I4=
-github.com/selesy/ethereum-mcp/gen v0.0.0-20250901154801-d4c233633a9f/go.mod h1:spQUq+TrIVOj+XfbHVOZwB+T9WYcJ3+mAdM0vsUDe8E=
+github.com/selesy/ethereum-mcp/gen v0.1.0 h1:okp9+W7J11QdD0/NvNMaZxnPoK4y2jUknPjPk4WOIDU=
+github.com/selesy/ethereum-mcp/gen v0.1.0/go.mod h1:SCFMuaB2IbrcP0rFKvFscs06kvrXXHdZw11kDBOABdA=
 github.com/selesy/jsonschema v0.14.0-rc1 h1:rGdpQeWFk76uxpmOx0lrA9Lwb+eVTBPZ6io5IC7rVIk=
 github.com/selesy/jsonschema v0.14.0-rc1/go.mod h1:QgbdOu2y8GVkNvmK+npB2dvXlbdEL0eQ2LrRcHRTcKU=
 github.com/spf13/cast v1.7.1 h1:cuNEagBQEHWN1FnbGEjCXL2szYEXqfJPbP2HNUaca9Y=
