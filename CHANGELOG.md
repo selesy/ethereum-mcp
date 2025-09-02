@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/selesy/ethereum-mcp/compare/v0.1.0...v0.1.1) (2025-09-02)
+
+
+### Bug Fixes
+
+* **gha:** try the easy fix for pre-release rate-limiting ([9cc45d4](https://github.com/selesy/ethereum-mcp/commit/9cc45d4ba9618215b59c9f37d13f40da4f72f8f0))
+
 ## [0.1.0](https://github.com/selesy/ethereum-mcp/compare/v0.0.0...v0.1.0) (2025-09-02)
 
 
