@@ -58,15 +58,15 @@ func (g *Generator) Run(ctx context.Context, methods []openrpc.Method) error {
 		// Create an embed variable for each method
 		f.Comment(goName + " " + strings.ToLower(string(method.Description()[0])) + method.Description()[1:])
 		f.Comment("//go:embed " + filepath.Join("data", method.Name()+".json"))
-		f.Var().Id(goName).String()
+		f.Var().Id(goName).Qual("encoding/json", "RawMessage")
 
 		// Add the name/JSON to the lookup table
 		dict[jen.Lit(method.Name())] = jen.Id(goName)
 	}
 
 	f.Comment("Schemas returns a map relating schema names to the associated Method.")
-	f.Func().Id("Schemas").Params().Map(jen.String()).String().Block(
-		jen.Return(jen.Map(jen.String()).String().Values(dict)),
+	f.Func().Id("Schemas").Params().Map(jen.String()).Qual("encoding/json", "RawMessage").Block(
+		jen.Return(jen.Map(jen.String()).Qual("encoding/json", "RawMessage").Values(dict)),
 	)
 
 	if err := f.Save("schema_gen.go"); err != nil {
@@ -85,5 +85,5 @@ func goName(name string) string {
 		tkns[i] = strings.ToUpper(string(tkn[0])) + tkn[1:]
 	}
 
-	return strings.Join(tkns, "") + "JSON"
+	return strings.Join(tkns, "") + "Schema"
 }

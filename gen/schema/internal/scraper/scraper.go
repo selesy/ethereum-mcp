@@ -33,8 +33,6 @@ func New(log *slog.Logger) *Scraper {
 		cl = cl.WithAuthToken(tkn)
 	}
 
-	cl = cl.WithAuthToken(tkn)
-
 	return &Scraper{
 		cl:  cl,
 		log: log,
