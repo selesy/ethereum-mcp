@@ -7,8 +7,8 @@ import (
 
 	"github.com/lmittmann/tint"
 
-	"github.com/selesy/ethereum-mcp/gen/schema/internal/generator"
-	"github.com/selesy/ethereum-mcp/gen/schema/internal/scraper"
+	"github.com/selesy/ethereum-mcp/gen/internal/generator"
+	"github.com/selesy/ethereum-mcp/gen/internal/scraper"
 )
 
 // Run scrapes Ethereum execution APIs and generates complete JSONSchemas

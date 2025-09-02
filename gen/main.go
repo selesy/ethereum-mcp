@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/selesy/ethereum-mcp/gen/schema/internal"
+	"github.com/selesy/ethereum-mcp/gen/internal"
 )
 
 func main() {

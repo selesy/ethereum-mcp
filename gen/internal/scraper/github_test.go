@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/selesy/ethereum-mcp/gen/schema/internal/scraper"
+	"github.com/selesy/ethereum-mcp/gen/internal/scraper"
 )
 
 // TODO: this tests the code but is NOT a unit test, requires a connection
