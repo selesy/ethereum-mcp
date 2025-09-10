@@ -9,14 +9,41 @@ import (
 	"github.com/stretchr/testify/require"
 	"gotest.tools/v3/golden"
 
-	"github.com/selesy/ethereum-mcp/pkg/openrpc"
+	"github.com/selesy/ethereum-mcp/gen/internal/openrpc"
 )
+
+func TestMethod_Schema(t *testing.T) {
+	t.Parallel()
+
+	data := golden.Get(t, "transaction.yaml")
+	assert.NotNil(t, data)
+
+	data, err := yaml.YAMLToJSON(data)
+	require.NoError(t, err)
+
+	var methods []openrpc.Method
+
+	require.NoError(t, json.Unmarshal(data, &methods))
+
+	for _, method := range methods {
+		// t.Log(method.Schema())
+
+		data, err := json.MarshalIndent(method.Schema(), "", "  ")
+		require.NoError(t, err)
+
+		_ = data
+		// t.Log(string(data))
+	}
+
+	// t.Fail()
+}
 
 func TestMethod_UnmarshalJSON(t *testing.T) {
 	t.Parallel()
 
 	t.Run("with execution-api example", func(t *testing.T) {
 		t.Parallel()
+
 		data := golden.Get(t, "transaction.yaml")
 		assert.NotNil(t, data)
 

@@ -9,7 +9,7 @@ import (
 
 	"github.com/google/go-github/v74/github"
 
-	"github.com/selesy/ethereum-mcp/pkg/openrpc"
+	"github.com/selesy/ethereum-mcp/gen/internal/openrpc"
 )
 
 // Scraper downloads and parses OpenRPC files from the Ethereum APIs

@@ -6,9 +6,12 @@ import (
 	"strings"
 
 	"github.com/selesy/jsonschema"
+	orderedmap "github.com/wk8/go-ordered-map/v2"
 )
 
-// Method is an idempotent representation of an OpenRPC method.  Only the
+var _ json.Unmarshaler = (*Method)(nil)
+
+// Method is an immutable representation of an OpenRPC method.  Only the
 // fields needed to create a "raw schema" for an MCP tool are defined and
 // processed while unmarshaling the JSON.  See [the specification] for
 // more details on the available fields when updating or expanding this
@@ -19,6 +22,10 @@ type Method struct {
 	method method
 }
 
+// WithDefs returns a deep copy of the receiver with the provided
+// Definitions replacing any previously set definitions.  This
+// method is integral to merging the OpenRPC schemas and definitions
+// into "complete" JSONSchema types.
 func (m *Method) WithDefs(defs Definitions) *Method {
 
 	return &Method{
@@ -60,9 +67,30 @@ func (m *Method) Defs() Definitions {
 	return m.method.Defs
 }
 
-// MarshalJSON implements the json.Marshaler interface.
-func (m Method) MarshalJSON() ([]byte, error) {
-	return json.Marshal(m.method)
+func (m *Method) Schema() jsonschema.Schema {
+	s := jsonschema.Schema{
+		ID:          jsonschema.ID("https://github.com/selesy/ethereum-mcp/" + m.Name() + ".json"),
+		Version:     "https://json-schema.org/draft/2020-12/schema",
+		Title:       m.Name(),
+		Description: m.Description(),
+		Type:        "object",
+		Properties:  orderedmap.New[string, *jsonschema.Schema](),
+		Definitions: m.method.Defs.GetAll(),
+	}
+
+	required := []string{}
+	for _, param := range m.Params() {
+		s.Properties.Store(param.Name(), param.Schema())
+		if param.Required() {
+			required = append(required, param.Name())
+		}
+	}
+
+	if len(required) > 0 {
+		s.Required = required
+	}
+
+	return s
 }
 
 // UnmarshalJSON implements the json.Unmarshaler interface.
@@ -89,7 +117,10 @@ type method struct {
 	Params []Param     `json:"params"`
 	Refs   []string    `json:"-"`
 	Defs   Definitions `json:"defs"`
+	Type   string      `json:"type"`
 }
+
+var _ json.Unmarshaler = (*Param)(nil)
 
 // Param is an idempotent representation of an OpenRPC method parameter.
 // For the Ethereum RPC, this is always a ContentDescriptorObject and all
@@ -110,9 +141,13 @@ func (p *Param) Description() string {
 	return p.param.description()
 }
 
-// Schema returns the schema of the parameter.
-func (p *Param) Schema() jsonschema.Schema {
-	return p.param.Schema
+// Schema returns the JSONSchema representation of the parameter.
+func (p *Param) Schema() *jsonschema.Schema {
+	s := &p.param.Schema
+	s.Title = p.Name()
+	s.Description = p.Description()
+
+	return s
 }
 
 // Required returns whether the parameter is required.
@@ -123,11 +158,6 @@ func (p *Param) Required() bool {
 // Deprecated returns whether the parameter is deprecated.
 func (p *Param) Deprecated() bool {
 	return p.param.Deprecated
-}
-
-// MarshalJSON implements the json.Marshaler interface.
-func (p Param) MarshalJSON() ([]byte, error) {
-	return json.Marshal(p.param)
 }
 
 // UnmarshalJSON implements the json.Unmarshaler interface.
