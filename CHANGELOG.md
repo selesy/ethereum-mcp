@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1](https://github.com/selesy/ethereum-mcp/compare/v0.4.0...v0.4.1) (2025-09-10)
+
+
+### Bug Fixes
+
+* generate valid JSONSchema filesmoves the package into the generator ([926ae00](https://github.com/selesy/ethereum-mcp/commit/926ae008da7e0db29b70d4f08ef89369f45c04b4))
+
 ## [0.4.0](https://github.com/selesy/ethereum-mcp/compare/v0.3.0...v0.4.0) (2025-09-02)
 
 
