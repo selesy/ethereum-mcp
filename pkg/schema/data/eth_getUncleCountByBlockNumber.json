@@ -1,20 +1,7 @@
 {
-  "summary": "Returns the number of transactions in a block matching the given block number.",
-  "description": "",
-  "name": "eth_getUncleCountByBlockNumber",
-  "params": [
-    {
-      "summary": "",
-      "description": "Block",
-      "name": "block",
-      "schema": {
-        "$ref": "#/$defs/BlockNumberOrTag"
-      },
-      "required": false,
-      "deprecated": false
-    }
-  ],
-  "defs": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/eth_getUncleCountByBlockNumber.json",
+  "$defs": {
     "BlockNumberOrTag": {
       "oneOf": [
         {
@@ -45,5 +32,15 @@
       "pattern": "^0x(0|[1-9a-f][0-9a-f]*)$",
       "title": "hex encoded unsigned integer"
     }
-  }
+  },
+  "properties": {
+    "block": {
+      "$ref": "#/$defs/BlockNumberOrTag",
+      "title": "block",
+      "description": "Block"
+    }
+  },
+  "type": "object",
+  "title": "eth_getUncleCountByBlockNumber",
+  "description": "Returns the number of transactions in a block matching the given block number."
 }

@@ -1,24 +1,24 @@
 {
-  "summary": "Returns the information about a transaction requested by transaction hash.",
-  "description": "",
-  "name": "eth_getTransactionByHash",
-  "params": [
-    {
-      "summary": "",
-      "description": "Transaction hash",
-      "name": "transaction_hash",
-      "schema": {
-        "$ref": "#/$defs/hash32"
-      },
-      "required": true,
-      "deprecated": false
-    }
-  ],
-  "defs": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/eth_getTransactionByHash.json",
+  "$defs": {
     "hash32": {
       "type": "string",
       "pattern": "^0x[0-9a-f]{64}$",
       "title": "32 byte hex value"
     }
-  }
+  },
+  "properties": {
+    "transaction_hash": {
+      "$ref": "#/$defs/hash32",
+      "title": "transaction_hash",
+      "description": "Transaction hash"
+    }
+  },
+  "type": "object",
+  "required": [
+    "transaction_hash"
+  ],
+  "title": "eth_getTransactionByHash",
+  "description": "Returns the information about a transaction requested by transaction hash."
 }

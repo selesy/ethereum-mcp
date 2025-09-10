@@ -1,7 +1,8 @@
 {
-  "summary": "Returns the client coinbase address.",
-  "description": "",
-  "name": "eth_coinbase",
-  "params": [],
-  "defs": null
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/eth_coinbase.json",
+  "properties": {},
+  "type": "object",
+  "title": "eth_coinbase",
+  "description": "Returns the client coinbase address."
 }

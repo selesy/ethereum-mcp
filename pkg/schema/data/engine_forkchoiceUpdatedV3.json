@@ -1,30 +1,7 @@
 {
-  "summary": "Updates the forkchoice state",
-  "description": "",
-  "name": "engine_forkchoiceUpdatedV3",
-  "params": [
-    {
-      "summary": "",
-      "description": "Forkchoice state",
-      "name": "forkchoice_state",
-      "schema": {
-        "$ref": "#/$defs/ForkchoiceStateV1"
-      },
-      "required": true,
-      "deprecated": false
-    },
-    {
-      "summary": "",
-      "description": "Payload attributes",
-      "name": "payload_attributes",
-      "schema": {
-        "$ref": "#/$defs/PayloadAttributesV3"
-      },
-      "required": false,
-      "deprecated": false
-    }
-  ],
-  "defs": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/engine_forkchoiceUpdatedV3.json",
+  "$defs": {
     "ForkchoiceStateV1": {
       "properties": {
         "finalizedBlockHash": {
@@ -86,5 +63,23 @@
     "suggestedFeeRecipient": null,
     "timestamp": null,
     "withdrawals": null
-  }
+  },
+  "properties": {
+    "forkchoice_state": {
+      "$ref": "#/$defs/ForkchoiceStateV1",
+      "title": "forkchoice_state",
+      "description": "Forkchoice state"
+    },
+    "payload_attributes": {
+      "$ref": "#/$defs/PayloadAttributesV3",
+      "title": "payload_attributes",
+      "description": "Payload attributes"
+    }
+  },
+  "type": "object",
+  "required": [
+    "forkchoice_state"
+  ],
+  "title": "engine_forkchoiceUpdatedV3",
+  "description": "Updates the forkchoice state"
 }

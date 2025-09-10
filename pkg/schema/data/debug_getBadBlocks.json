@@ -1,7 +1,8 @@
 {
-  "summary": "Returns an array of recent bad blocks that the client has seen on the network.",
-  "description": "",
-  "name": "debug_getBadBlocks",
-  "params": [],
-  "defs": null
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/debug_getBadBlocks.json",
+  "properties": {},
+  "type": "object",
+  "title": "debug_getBadBlocks",
+  "description": "Returns an array of recent bad blocks that the client has seen on the network."
 }

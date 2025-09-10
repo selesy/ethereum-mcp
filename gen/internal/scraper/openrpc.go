@@ -9,7 +9,7 @@ import (
 
 	"github.com/invopop/yaml"
 
-	"github.com/selesy/ethereum-mcp/pkg/openrpc"
+	"github.com/selesy/ethereum-mcp/gen/internal/openrpc"
 )
 
 // MergeMethodsAndDefinitions adds a "def" key containing each definition

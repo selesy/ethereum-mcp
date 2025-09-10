@@ -1,20 +1,7 @@
 {
-  "summary": "Exchanges transition configuration",
-  "description": "",
-  "name": "engine_exchangeTransitionConfigurationV1",
-  "params": [
-    {
-      "summary": "",
-      "description": "Consensus client configuration",
-      "name": "consensus_client_configuration",
-      "schema": {
-        "$ref": "#/$defs/TransitionConfigurationV1"
-      },
-      "required": true,
-      "deprecated": false
-    }
-  ],
-  "defs": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/engine_exchangeTransitionConfigurationV1.json",
+  "$defs": {
     "TransitionConfigurationV1": {
       "properties": {
         "terminalBlockHash": {
@@ -53,5 +40,18 @@
       "pattern": "^0x(0|[1-9a-f][0-9a-f]{0,15})$",
       "title": "hex encoded 64 bit unsigned integer"
     }
-  }
+  },
+  "properties": {
+    "consensus_client_configuration": {
+      "$ref": "#/$defs/TransitionConfigurationV1",
+      "title": "consensus_client_configuration",
+      "description": "Consensus client configuration"
+    }
+  },
+  "type": "object",
+  "required": [
+    "consensus_client_configuration"
+  ],
+  "title": "engine_exchangeTransitionConfigurationV1",
+  "description": "Exchanges transition configuration"
 }

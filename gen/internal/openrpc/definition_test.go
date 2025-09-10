@@ -11,7 +11,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"gotest.tools/v3/golden"
 
-	"github.com/selesy/ethereum-mcp/pkg/openrpc"
+	"github.com/selesy/ethereum-mcp/gen/internal/openrpc"
 )
 
 func TestMerge(t *testing.T) {
@@ -65,28 +65,33 @@ func TestDefinitions_Filter(t *testing.T) {
 		"A2": {},
 		"A3": {"deprecated":true},
 		"B1": {},
-		"B2": {},
-		"B3": {}
+		"B2": {
+			"title": "C2 or C4",
+			"oneOf": [
+				{"$ref":"#/components/schemas/C2"},
+				{"$ref":"#/components/schemas/C4"}
+			]
+		},
+		"B3": {},
+		"C1": {},
+		"C2": {},
+		"C3": {},
+		"C4": {}
 	}`
 
 	var defs openrpc.Definitions
 
 	require.NoError(t, json.Unmarshal([]byte(in), &defs))
-	assert.Equal(t, 6, defs.Len())
-
-	assert.True(t, defs.Contains("A1"))
-	assert.True(t, defs.Contains("A2"))
-	assert.True(t, defs.Contains("A3"))
-	assert.True(t, defs.Contains("B1"))
-	assert.True(t, defs.Contains("B2"))
-	assert.True(t, defs.Contains("B3"))
+	require.Equal(t, 10, defs.Len())
 
 	defs, err := defs.Filter("A3", "B2")
 	require.NoError(t, err)
-	assert.Equal(t, 2, defs.Len())
+	assert.Equal(t, 4, defs.Len())
 
 	assert.True(t, defs.Contains("A3"))
 	assert.True(t, defs.Contains("B2"))
+	assert.True(t, defs.Contains("C2"))
+	assert.True(t, defs.Contains("C4"))
 
 	assert.True(t, defs.Get("A3").Deprecated)
 	assert.False(t, defs.Get("B2").Deprecated)

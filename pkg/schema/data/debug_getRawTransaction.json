@@ -1,24 +1,24 @@
 {
-  "summary": "Returns an array of EIP-2718 binary-encoded transactions.",
-  "description": "",
-  "name": "debug_getRawTransaction",
-  "params": [
-    {
-      "summary": "",
-      "description": "Transaction hash",
-      "name": "transaction_hash",
-      "schema": {
-        "$ref": "#/$defs/hash32"
-      },
-      "required": true,
-      "deprecated": false
-    }
-  ],
-  "defs": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/debug_getRawTransaction.json",
+  "$defs": {
     "hash32": {
       "type": "string",
       "pattern": "^0x[0-9a-f]{64}$",
       "title": "32 byte hex value"
     }
-  }
+  },
+  "properties": {
+    "transaction_hash": {
+      "$ref": "#/$defs/hash32",
+      "title": "transaction_hash",
+      "description": "Transaction hash"
+    }
+  },
+  "type": "object",
+  "required": [
+    "transaction_hash"
+  ],
+  "title": "debug_getRawTransaction",
+  "description": "Returns an array of EIP-2718 binary-encoded transactions."
 }

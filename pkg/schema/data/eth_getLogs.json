@@ -1,20 +1,7 @@
 {
-  "summary": "Returns an array of all logs matching the specified filter.",
-  "description": "",
-  "name": "eth_getLogs",
-  "params": [
-    {
-      "summary": "",
-      "description": "Filter",
-      "name": "filter",
-      "schema": {
-        "$ref": "#/$defs/Filter"
-      },
-      "required": true,
-      "deprecated": false
-    }
-  ],
-  "defs": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/eth_getLogs.json",
+  "$defs": {
     "Filter": {
       "properties": {
         "address": {
@@ -105,5 +92,18 @@
       "pattern": "^0x(0|[1-9a-f][0-9a-f]*)$",
       "title": "hex encoded unsigned integer"
     }
-  }
+  },
+  "properties": {
+    "filter": {
+      "$ref": "#/$defs/Filter",
+      "title": "filter",
+      "description": "Filter"
+    }
+  },
+  "type": "object",
+  "required": [
+    "filter"
+  ],
+  "title": "eth_getLogs",
+  "description": "Returns an array of all logs matching the specified filter."
 }

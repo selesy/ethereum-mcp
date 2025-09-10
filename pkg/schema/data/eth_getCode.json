@@ -1,30 +1,7 @@
 {
-  "summary": "Returns code at a given address.",
-  "description": "",
-  "name": "eth_getCode",
-  "params": [
-    {
-      "summary": "",
-      "description": "Address",
-      "name": "address",
-      "schema": {
-        "$ref": "#/$defs/address"
-      },
-      "required": true,
-      "deprecated": false
-    },
-    {
-      "summary": "",
-      "description": "Block",
-      "name": "block",
-      "schema": {
-        "$ref": "#/$defs/BlockNumberOrTagOrHash"
-      },
-      "required": true,
-      "deprecated": false
-    }
-  ],
-  "defs": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/eth_getCode.json",
+  "$defs": {
     "BlockNumberOrTagOrHash": {
       "anyOf": [
         {
@@ -69,5 +46,24 @@
       "pattern": "^0x(0|[1-9a-f][0-9a-f]*)$",
       "title": "hex encoded unsigned integer"
     }
-  }
+  },
+  "properties": {
+    "address": {
+      "$ref": "#/$defs/address",
+      "title": "address",
+      "description": "Address"
+    },
+    "block": {
+      "$ref": "#/$defs/BlockNumberOrTagOrHash",
+      "title": "block",
+      "description": "Block"
+    }
+  },
+  "type": "object",
+  "required": [
+    "address",
+    "block"
+  ],
+  "title": "eth_getCode",
+  "description": "Returns code at a given address."
 }

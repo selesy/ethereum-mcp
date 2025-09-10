@@ -1,20 +1,7 @@
 {
-  "summary": "Returns an RLP-encoded block.",
-  "description": "",
-  "name": "debug_getRawBlock",
-  "params": [
-    {
-      "summary": "",
-      "description": "Block",
-      "name": "block",
-      "schema": {
-        "$ref": "#/$defs/BlockNumberOrTag"
-      },
-      "required": true,
-      "deprecated": false
-    }
-  ],
-  "defs": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/debug_getRawBlock.json",
+  "$defs": {
     "BlockNumberOrTag": {
       "oneOf": [
         {
@@ -45,5 +32,18 @@
       "pattern": "^0x(0|[1-9a-f][0-9a-f]*)$",
       "title": "hex encoded unsigned integer"
     }
-  }
+  },
+  "properties": {
+    "block": {
+      "$ref": "#/$defs/BlockNumberOrTag",
+      "title": "block",
+      "description": "Block"
+    }
+  },
+  "type": "object",
+  "required": [
+    "block"
+  ],
+  "title": "debug_getRawBlock",
+  "description": "Returns an RLP-encoded block."
 }

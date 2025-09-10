@@ -1,30 +1,7 @@
 {
-  "summary": "Returns information about a transaction by block number and transaction index position.",
-  "description": "",
-  "name": "eth_getTransactionByBlockNumberAndIndex",
-  "params": [
-    {
-      "summary": "",
-      "description": "Block",
-      "name": "block",
-      "schema": {
-        "$ref": "#/$defs/BlockNumberOrTag"
-      },
-      "required": true,
-      "deprecated": false
-    },
-    {
-      "summary": "",
-      "description": "Transaction index",
-      "name": "transaction_index",
-      "schema": {
-        "$ref": "#/$defs/uint"
-      },
-      "required": true,
-      "deprecated": false
-    }
-  ],
-  "defs": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/eth_getTransactionByBlockNumberAndIndex.json",
+  "$defs": {
     "BlockNumberOrTag": {
       "oneOf": [
         {
@@ -55,5 +32,24 @@
       "pattern": "^0x(0|[1-9a-f][0-9a-f]*)$",
       "title": "hex encoded unsigned integer"
     }
-  }
+  },
+  "properties": {
+    "block": {
+      "$ref": "#/$defs/BlockNumberOrTag",
+      "title": "block",
+      "description": "Block"
+    },
+    "transaction_index": {
+      "$ref": "#/$defs/uint",
+      "title": "transaction_index",
+      "description": "Transaction index"
+    }
+  },
+  "type": "object",
+  "required": [
+    "block",
+    "transaction_index"
+  ],
+  "title": "eth_getTransactionByBlockNumberAndIndex",
+  "description": "Returns information about a transaction by block number and transaction index position."
 }

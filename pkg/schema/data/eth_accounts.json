@@ -1,7 +1,8 @@
 {
-  "summary": "Returns a list of addresses owned by client.",
-  "description": "",
-  "name": "eth_accounts",
-  "params": [],
-  "defs": null
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/eth_accounts.json",
+  "properties": {},
+  "type": "object",
+  "title": "eth_accounts",
+  "description": "Returns a list of addresses owned by client."
 }
