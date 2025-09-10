@@ -1,27 +1,27 @@
 {
-  "summary": "Fetch blobs from the blob mempool",
-  "description": "",
-  "name": "engine_getBlobsV2",
-  "params": [
-    {
-      "summary": "",
-      "description": "Blob versioned hashes",
-      "name": "blob_versioned_hashes",
-      "schema": {
-        "items": {
-          "$ref": "#/$defs/hash32"
-        },
-        "type": "array"
-      },
-      "required": true,
-      "deprecated": false
-    }
-  ],
-  "defs": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/engine_getBlobsV2.json",
+  "$defs": {
     "hash32": {
       "type": "string",
       "pattern": "^0x[0-9a-f]{64}$",
       "title": "32 byte hex value"
     }
-  }
+  },
+  "properties": {
+    "blob_versioned_hashes": {
+      "items": {
+        "$ref": "#/$defs/hash32"
+      },
+      "type": "array",
+      "title": "blob_versioned_hashes",
+      "description": "Blob versioned hashes"
+    }
+  },
+  "type": "object",
+  "required": [
+    "blob_versioned_hashes"
+  ],
+  "title": "engine_getBlobsV2",
+  "description": "Fetch blobs from the blob mempool"
 }

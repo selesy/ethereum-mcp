@@ -1,30 +1,7 @@
 {
-  "summary": "Returns an EIP-191 signature over the provided data.",
-  "description": "",
-  "name": "eth_sign",
-  "params": [
-    {
-      "summary": "",
-      "description": "Address",
-      "name": "address",
-      "schema": {
-        "$ref": "#/$defs/address"
-      },
-      "required": true,
-      "deprecated": false
-    },
-    {
-      "summary": "",
-      "description": "Message",
-      "name": "message",
-      "schema": {
-        "$ref": "#/$defs/bytes"
-      },
-      "required": true,
-      "deprecated": false
-    }
-  ],
-  "defs": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/eth_sign.json",
+  "$defs": {
     "address": {
       "type": "string",
       "pattern": "^0x[0-9a-fA-F]{40}$",
@@ -35,5 +12,24 @@
       "pattern": "^0x[0-9a-f]*$",
       "title": "hex encoded bytes"
     }
-  }
+  },
+  "properties": {
+    "address": {
+      "$ref": "#/$defs/address",
+      "title": "address",
+      "description": "Address"
+    },
+    "message": {
+      "$ref": "#/$defs/bytes",
+      "title": "message",
+      "description": "Message"
+    }
+  },
+  "type": "object",
+  "required": [
+    "address",
+    "message"
+  ],
+  "title": "eth_sign",
+  "description": "Returns an EIP-191 signature over the provided data."
 }

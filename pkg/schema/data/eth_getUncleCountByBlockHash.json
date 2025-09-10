@@ -1,24 +1,21 @@
 {
-  "summary": "Returns the number of uncles in a block from a block matching the given block hash.",
-  "description": "",
-  "name": "eth_getUncleCountByBlockHash",
-  "params": [
-    {
-      "summary": "",
-      "description": "Block hash",
-      "name": "block_hash",
-      "schema": {
-        "$ref": "#/$defs/hash32"
-      },
-      "required": false,
-      "deprecated": false
-    }
-  ],
-  "defs": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/eth_getUncleCountByBlockHash.json",
+  "$defs": {
     "hash32": {
       "type": "string",
       "pattern": "^0x[0-9a-f]{64}$",
       "title": "32 byte hex value"
     }
-  }
+  },
+  "properties": {
+    "block_hash": {
+      "$ref": "#/$defs/hash32",
+      "title": "block_hash",
+      "description": "Block hash"
+    }
+  },
+  "type": "object",
+  "title": "eth_getUncleCountByBlockHash",
+  "description": "Returns the number of uncles in a block from a block matching the given block hash."
 }

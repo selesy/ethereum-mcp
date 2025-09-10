@@ -1,7 +1,8 @@
 {
-  "summary": "Returns an object with data about the sync status or false.",
-  "description": "",
-  "name": "eth_syncing",
-  "params": [],
-  "defs": null
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/eth_syncing.json",
+  "properties": {},
+  "type": "object",
+  "title": "eth_syncing",
+  "description": "Returns an object with data about the sync status or false."
 }

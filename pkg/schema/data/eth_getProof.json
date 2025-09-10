@@ -1,44 +1,7 @@
 {
-  "summary": "Returns the merkle proof for a given account and optionally some storage keys.",
-  "description": "",
-  "name": "eth_getProof",
-  "params": [
-    {
-      "summary": "",
-      "description": "Address",
-      "name": "address",
-      "schema": {
-        "$ref": "#/$defs/address"
-      },
-      "required": true,
-      "deprecated": false
-    },
-    {
-      "summary": "",
-      "description": "StorageKeys",
-      "name": "storagekeys",
-      "schema": {
-        "items": {
-          "$ref": "#/$defs/bytesMax32"
-        },
-        "type": "array",
-        "title": "Storage keys"
-      },
-      "required": true,
-      "deprecated": false
-    },
-    {
-      "summary": "",
-      "description": "Block",
-      "name": "block",
-      "schema": {
-        "$ref": "#/$defs/BlockNumberOrTagOrHash"
-      },
-      "required": true,
-      "deprecated": false
-    }
-  ],
-  "defs": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/eth_getProof.json",
+  "$defs": {
     "BlockNumberOrTagOrHash": {
       "anyOf": [
         {
@@ -88,5 +51,33 @@
       "pattern": "^0x(0|[1-9a-f][0-9a-f]*)$",
       "title": "hex encoded unsigned integer"
     }
-  }
+  },
+  "properties": {
+    "address": {
+      "$ref": "#/$defs/address",
+      "title": "address",
+      "description": "Address"
+    },
+    "storagekeys": {
+      "items": {
+        "$ref": "#/$defs/bytesMax32"
+      },
+      "type": "array",
+      "title": "storagekeys",
+      "description": "StorageKeys"
+    },
+    "block": {
+      "$ref": "#/$defs/BlockNumberOrTagOrHash",
+      "title": "block",
+      "description": "Block"
+    }
+  },
+  "type": "object",
+  "required": [
+    "address",
+    "storagekeys",
+    "block"
+  ],
+  "title": "eth_getProof",
+  "description": "Returns the merkle proof for a given account and optionally some storage keys."
 }

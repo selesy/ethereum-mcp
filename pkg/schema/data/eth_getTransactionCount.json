@@ -1,30 +1,7 @@
 {
-  "summary": "Returns the nonce of an account in the state. NOTE: The name eth_getTransactionCount reflects the historical fact that an account's nonce and sent transaction count were the same. After the Pectra fork, with the inclusion of EIP-7702, this is no longer true.",
-  "description": "",
-  "name": "eth_getTransactionCount",
-  "params": [
-    {
-      "summary": "",
-      "description": "Address",
-      "name": "address",
-      "schema": {
-        "$ref": "#/$defs/address"
-      },
-      "required": true,
-      "deprecated": false
-    },
-    {
-      "summary": "",
-      "description": "Block",
-      "name": "block",
-      "schema": {
-        "$ref": "#/$defs/BlockNumberOrTagOrHash"
-      },
-      "required": true,
-      "deprecated": false
-    }
-  ],
-  "defs": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/eth_getTransactionCount.json",
+  "$defs": {
     "BlockNumberOrTagOrHash": {
       "anyOf": [
         {
@@ -69,5 +46,24 @@
       "pattern": "^0x(0|[1-9a-f][0-9a-f]*)$",
       "title": "hex encoded unsigned integer"
     }
-  }
+  },
+  "properties": {
+    "address": {
+      "$ref": "#/$defs/address",
+      "title": "address",
+      "description": "Address"
+    },
+    "block": {
+      "$ref": "#/$defs/BlockNumberOrTagOrHash",
+      "title": "block",
+      "description": "Block"
+    }
+  },
+  "type": "object",
+  "required": [
+    "address",
+    "block"
+  ],
+  "title": "eth_getTransactionCount",
+  "description": "Returns the nonce of an account in the state. NOTE: The name eth_getTransactionCount reflects the historical fact that an account's nonce and sent transaction count were the same. After the Pectra fork, with the inclusion of EIP-7702, this is no longer true."
 }

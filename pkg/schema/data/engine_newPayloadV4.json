@@ -1,56 +1,7 @@
 {
-  "summary": "Runs execution payload validation",
-  "description": "",
-  "name": "engine_newPayloadV4",
-  "params": [
-    {
-      "summary": "",
-      "description": "Execution payload",
-      "name": "execution_payload",
-      "schema": {
-        "$ref": "#/$defs/ExecutionPayloadV3"
-      },
-      "required": true,
-      "deprecated": false
-    },
-    {
-      "summary": "",
-      "description": "Expected blob versioned hashes",
-      "name": "expected_blob_versioned_hashes",
-      "schema": {
-        "items": {
-          "$ref": "#/$defs/hash32"
-        },
-        "type": "array"
-      },
-      "required": true,
-      "deprecated": false
-    },
-    {
-      "summary": "",
-      "description": "Root of the parent beacon block",
-      "name": "root_of_the_parent_beacon_block",
-      "schema": {
-        "$ref": "#/$defs/hash32"
-      },
-      "required": true,
-      "deprecated": false
-    },
-    {
-      "summary": "",
-      "description": "Execution requests",
-      "name": "execution_requests",
-      "schema": {
-        "items": {
-          "$ref": "#/$defs/bytes"
-        },
-        "type": "array"
-      },
-      "required": true,
-      "deprecated": false
-    }
-  ],
-  "defs": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/engine_newPayloadV4.json",
+  "$defs": {
     "ExecutionPayloadV3": {
       "properties": {
         "baseFeePerGas": {
@@ -159,5 +110,42 @@
       "title": "hex encoded 64 bit unsigned integer"
     },
     "withdrawals": null
-  }
+  },
+  "properties": {
+    "execution_payload": {
+      "$ref": "#/$defs/ExecutionPayloadV3",
+      "title": "execution_payload",
+      "description": "Execution payload"
+    },
+    "expected_blob_versioned_hashes": {
+      "items": {
+        "$ref": "#/$defs/hash32"
+      },
+      "type": "array",
+      "title": "expected_blob_versioned_hashes",
+      "description": "Expected blob versioned hashes"
+    },
+    "root_of_the_parent_beacon_block": {
+      "$ref": "#/$defs/hash32",
+      "title": "root_of_the_parent_beacon_block",
+      "description": "Root of the parent beacon block"
+    },
+    "execution_requests": {
+      "items": {
+        "$ref": "#/$defs/bytes"
+      },
+      "type": "array",
+      "title": "execution_requests",
+      "description": "Execution requests"
+    }
+  },
+  "type": "object",
+  "required": [
+    "execution_payload",
+    "expected_blob_versioned_hashes",
+    "root_of_the_parent_beacon_block",
+    "execution_requests"
+  ],
+  "title": "engine_newPayloadV4",
+  "description": "Runs execution payload validation"
 }

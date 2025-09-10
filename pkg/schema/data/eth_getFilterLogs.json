@@ -1,24 +1,24 @@
 {
-  "summary": "Returns an array of all logs matching the filter with the given ID (created using `eth_newFilter`).",
-  "description": "",
-  "name": "eth_getFilterLogs",
-  "params": [
-    {
-      "summary": "",
-      "description": "Filter identifier",
-      "name": "filter_identifier",
-      "schema": {
-        "$ref": "#/$defs/uint"
-      },
-      "required": true,
-      "deprecated": false
-    }
-  ],
-  "defs": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/eth_getFilterLogs.json",
+  "$defs": {
     "uint": {
       "type": "string",
       "pattern": "^0x(0|[1-9a-f][0-9a-f]*)$",
       "title": "hex encoded unsigned integer"
     }
-  }
+  },
+  "properties": {
+    "filter_identifier": {
+      "$ref": "#/$defs/uint",
+      "title": "filter_identifier",
+      "description": "Filter identifier"
+    }
+  },
+  "type": "object",
+  "required": [
+    "filter_identifier"
+  ],
+  "title": "eth_getFilterLogs",
+  "description": "Returns an array of all logs matching the filter with the given ID (created using `eth_newFilter`)."
 }

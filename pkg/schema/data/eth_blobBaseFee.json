@@ -1,7 +1,8 @@
 {
-  "summary": "Returns the base fee per blob gas in wei.",
-  "description": "",
-  "name": "eth_blobBaseFee",
-  "params": [],
-  "defs": null
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/eth_blobBaseFee.json",
+  "properties": {},
+  "type": "object",
+  "title": "eth_blobBaseFee",
+  "description": "Returns the base fee per blob gas in wei."
 }

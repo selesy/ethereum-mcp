@@ -1,7 +1,8 @@
 {
-  "summary": "Returns the number of most recent block.",
-  "description": "",
-  "name": "eth_blockNumber",
-  "params": [],
-  "defs": null
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/eth_blockNumber.json",
+  "properties": {},
+  "type": "object",
+  "title": "eth_blockNumber",
+  "description": "Returns the number of most recent block."
 }

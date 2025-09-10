@@ -1,24 +1,24 @@
 {
-  "summary": "Obtains execution payload from payload build process",
-  "description": "",
-  "name": "engine_getPayloadV2",
-  "params": [
-    {
-      "summary": "",
-      "description": "Payload id",
-      "name": "payload_id",
-      "schema": {
-        "$ref": "#/$defs/bytes8"
-      },
-      "required": true,
-      "deprecated": false
-    }
-  ],
-  "defs": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/engine_getPayloadV2.json",
+  "$defs": {
     "bytes8": {
       "type": "string",
       "pattern": "^0x[0-9a-f]{16}$",
       "title": "8 hex encoded bytes"
     }
-  }
+  },
+  "properties": {
+    "payload_id": {
+      "$ref": "#/$defs/bytes8",
+      "title": "payload_id",
+      "description": "Payload id"
+    }
+  },
+  "type": "object",
+  "required": [
+    "payload_id"
+  ],
+  "title": "engine_getPayloadV2",
+  "description": "Obtains execution payload from payload build process"
 }

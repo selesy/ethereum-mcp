@@ -1,46 +1,7 @@
 {
-  "summary": "Transaction fee history",
-  "description": "Returns transaction base fee per gas and effective priority fee per gas for the requested/supported block range.",
-  "name": "eth_feeHistory",
-  "params": [
-    {
-      "summary": "",
-      "description": "Requested range of blocks. Clients will return less than the requested range if not all blocks are available.",
-      "name": "blockcount",
-      "schema": {
-        "$ref": "#/$defs/uint"
-      },
-      "required": true,
-      "deprecated": false
-    },
-    {
-      "summary": "",
-      "description": "Highest block of the requested range.",
-      "name": "newestblock",
-      "schema": {
-        "$ref": "#/$defs/BlockNumberOrTag"
-      },
-      "required": true,
-      "deprecated": false
-    },
-    {
-      "summary": "",
-      "description": "A monotonically increasing list of percentile values. For each block in the requested range, the transactions will be sorted in ascending order by effective tip per gas and the corresponding effective tip for the percentile will be determined, accounting for gas consumed.",
-      "name": "rewardpercentiles",
-      "schema": {
-        "items": {
-          "type": "number",
-          "title": "rewardPercentile",
-          "description": "Floating point value between 0 and 100."
-        },
-        "type": "array",
-        "title": "rewardPercentiles"
-      },
-      "required": true,
-      "deprecated": false
-    }
-  ],
-  "defs": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/eth_feeHistory.json",
+  "$defs": {
     "BlockNumberOrTag": {
       "oneOf": [
         {
@@ -71,5 +32,35 @@
       "pattern": "^0x(0|[1-9a-f][0-9a-f]*)$",
       "title": "hex encoded unsigned integer"
     }
-  }
+  },
+  "properties": {
+    "blockcount": {
+      "$ref": "#/$defs/uint",
+      "title": "blockcount",
+      "description": "Requested range of blocks. Clients will return less than the requested range if not all blocks are available."
+    },
+    "newestblock": {
+      "$ref": "#/$defs/BlockNumberOrTag",
+      "title": "newestblock",
+      "description": "Highest block of the requested range."
+    },
+    "rewardpercentiles": {
+      "items": {
+        "type": "number",
+        "title": "rewardPercentile",
+        "description": "Floating point value between 0 and 100."
+      },
+      "type": "array",
+      "title": "rewardpercentiles",
+      "description": "A monotonically increasing list of percentile values. For each block in the requested range, the transactions will be sorted in ascending order by effective tip per gas and the corresponding effective tip for the percentile will be determined, accounting for gas consumed."
+    }
+  },
+  "type": "object",
+  "required": [
+    "blockcount",
+    "newestblock",
+    "rewardpercentiles"
+  ],
+  "title": "eth_feeHistory",
+  "description": "Returns transaction base fee per gas and effective priority fee per gas for the requested/supported block range."
 }

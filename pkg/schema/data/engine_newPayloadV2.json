@@ -1,27 +1,7 @@
 {
-  "summary": "Runs execution payload validation",
-  "description": "",
-  "name": "engine_newPayloadV2",
-  "params": [
-    {
-      "summary": "",
-      "description": "Execution payload",
-      "name": "execution_payload",
-      "schema": {
-        "oneOf": [
-          {
-            "$ref": "#/$defs/ExecutionPayloadV1"
-          },
-          {
-            "$ref": "#/$defs/ExecutionPayloadV2"
-          }
-        ]
-      },
-      "required": true,
-      "deprecated": false
-    }
-  ],
-  "defs": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/engine_newPayloadV2.json",
+  "$defs": {
     "ExecutionPayloadV1": {
       "properties": {
         "baseFeePerGas": {
@@ -257,5 +237,25 @@
       "pattern": "^0x(0|[1-9a-f][0-9a-f]{0,15})$",
       "title": "hex encoded 64 bit unsigned integer"
     }
-  }
+  },
+  "properties": {
+    "execution_payload": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/ExecutionPayloadV1"
+        },
+        {
+          "$ref": "#/$defs/ExecutionPayloadV2"
+        }
+      ],
+      "title": "execution_payload",
+      "description": "Execution payload"
+    }
+  },
+  "type": "object",
+  "required": [
+    "execution_payload"
+  ],
+  "title": "engine_newPayloadV2",
+  "description": "Runs execution payload validation"
 }

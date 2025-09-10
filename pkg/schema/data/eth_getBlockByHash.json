@@ -1,35 +1,30 @@
 {
-  "summary": "Returns information about a block by hash.",
-  "description": "",
-  "name": "eth_getBlockByHash",
-  "params": [
-    {
-      "summary": "",
-      "description": "Block hash",
-      "name": "block_hash",
-      "schema": {
-        "$ref": "#/$defs/hash32"
-      },
-      "required": true,
-      "deprecated": false
-    },
-    {
-      "summary": "",
-      "description": "Hydrated transactions",
-      "name": "hydrated_transactions",
-      "schema": {
-        "type": "boolean",
-        "title": "hydrated"
-      },
-      "required": true,
-      "deprecated": false
-    }
-  ],
-  "defs": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/eth_getBlockByHash.json",
+  "$defs": {
     "hash32": {
       "type": "string",
       "pattern": "^0x[0-9a-f]{64}$",
       "title": "32 byte hex value"
     }
-  }
+  },
+  "properties": {
+    "block_hash": {
+      "$ref": "#/$defs/hash32",
+      "title": "block_hash",
+      "description": "Block hash"
+    },
+    "hydrated_transactions": {
+      "type": "boolean",
+      "title": "hydrated_transactions",
+      "description": "Hydrated transactions"
+    }
+  },
+  "type": "object",
+  "required": [
+    "block_hash",
+    "hydrated_transactions"
+  ],
+  "title": "eth_getBlockByHash",
+  "description": "Returns information about a block by hash."
 }

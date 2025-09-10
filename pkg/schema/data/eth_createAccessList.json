@@ -1,30 +1,7 @@
 {
-  "summary": "Generates an access list for a transaction.",
-  "description": "",
-  "name": "eth_createAccessList",
-  "params": [
-    {
-      "summary": "",
-      "description": "Transaction",
-      "name": "transaction",
-      "schema": {
-        "$ref": "#/$defs/GenericTransaction"
-      },
-      "required": true,
-      "deprecated": false
-    },
-    {
-      "summary": "",
-      "description": "Block",
-      "name": "block",
-      "schema": {
-        "$ref": "#/$defs/BlockNumberOrTag"
-      },
-      "required": false,
-      "deprecated": false
-    }
-  ],
-  "defs": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/eth_createAccessList.json",
+  "$defs": {
     "AccessList": {
       "items": {
         "$ref": "#/$defs/AccessListEntry"
@@ -245,5 +222,23 @@
       "pattern": "^0x(0|[1-9a-f][0-9a-f]{0,63})$",
       "title": "hex encoded 256 bit unsigned integer"
     }
-  }
+  },
+  "properties": {
+    "transaction": {
+      "$ref": "#/$defs/GenericTransaction",
+      "title": "transaction",
+      "description": "Transaction"
+    },
+    "block": {
+      "$ref": "#/$defs/BlockNumberOrTag",
+      "title": "block",
+      "description": "Block"
+    }
+  },
+  "type": "object",
+  "required": [
+    "transaction"
+  ],
+  "title": "eth_createAccessList",
+  "description": "Generates an access list for a transaction."
 }

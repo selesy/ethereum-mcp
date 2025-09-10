@@ -1,20 +1,7 @@
 {
-  "summary": "Returns the receipts of a block by number or hash.",
-  "description": "",
-  "name": "eth_getBlockReceipts",
-  "params": [
-    {
-      "summary": "",
-      "description": "Block",
-      "name": "block",
-      "schema": {
-        "$ref": "#/$defs/BlockNumberOrTagOrHash"
-      },
-      "required": true,
-      "deprecated": false
-    }
-  ],
-  "defs": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/eth_getBlockReceipts.json",
+  "$defs": {
     "BlockNumberOrTagOrHash": {
       "anyOf": [
         {
@@ -54,5 +41,18 @@
       "pattern": "^0x(0|[1-9a-f][0-9a-f]*)$",
       "title": "hex encoded unsigned integer"
     }
-  }
+  },
+  "properties": {
+    "block": {
+      "$ref": "#/$defs/BlockNumberOrTagOrHash",
+      "title": "block",
+      "description": "Block"
+    }
+  },
+  "type": "object",
+  "required": [
+    "block"
+  ],
+  "title": "eth_getBlockReceipts",
+  "description": "Returns the receipts of a block by number or hash."
 }

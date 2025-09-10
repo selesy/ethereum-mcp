@@ -1,20 +1,7 @@
 {
-  "summary": "Install a log filter in the server, allowing for later polling. Registers client interest in logs matching the filter, and returns an identifier.",
-  "description": "",
-  "name": "eth_newFilter",
-  "params": [
-    {
-      "summary": "",
-      "description": "Filter",
-      "name": "filter",
-      "schema": {
-        "$ref": "#/$defs/Filter"
-      },
-      "required": true,
-      "deprecated": false
-    }
-  ],
-  "defs": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/eth_newFilter.json",
+  "$defs": {
     "Filter": {
       "properties": {
         "address": {
@@ -105,5 +92,18 @@
       "pattern": "^0x(0|[1-9a-f][0-9a-f]*)$",
       "title": "hex encoded unsigned integer"
     }
-  }
+  },
+  "properties": {
+    "filter": {
+      "$ref": "#/$defs/Filter",
+      "title": "filter",
+      "description": "Filter"
+    }
+  },
+  "type": "object",
+  "required": [
+    "filter"
+  ],
+  "title": "eth_newFilter",
+  "description": "Install a log filter in the server, allowing for later polling. Registers client interest in logs matching the filter, and returns an identifier."
 }

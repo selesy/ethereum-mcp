@@ -1,24 +1,24 @@
 {
-  "summary": "Polling method for the filter with the given ID (created using `eth_newFilter`). Returns an array of logs, block hashes, or transaction hashes since last poll, depending on the installed filter.",
-  "description": "",
-  "name": "eth_getFilterChanges",
-  "params": [
-    {
-      "summary": "",
-      "description": "Filter identifier",
-      "name": "filter_identifier",
-      "schema": {
-        "$ref": "#/$defs/uint"
-      },
-      "required": true,
-      "deprecated": false
-    }
-  ],
-  "defs": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/eth_getFilterChanges.json",
+  "$defs": {
     "uint": {
       "type": "string",
       "pattern": "^0x(0|[1-9a-f][0-9a-f]*)$",
       "title": "hex encoded unsigned integer"
     }
-  }
+  },
+  "properties": {
+    "filter_identifier": {
+      "$ref": "#/$defs/uint",
+      "title": "filter_identifier",
+      "description": "Filter identifier"
+    }
+  },
+  "type": "object",
+  "required": [
+    "filter_identifier"
+  ],
+  "title": "eth_getFilterChanges",
+  "description": "Polling method for the filter with the given ID (created using `eth_newFilter`). Returns an array of logs, block hashes, or transaction hashes since last poll, depending on the installed filter."
 }

@@ -1,21 +1,20 @@
 {
-  "summary": "Exchanges list of supported Engine API methods",
-  "description": "",
-  "name": "engine_exchangeCapabilities",
-  "params": [
-    {
-      "summary": "",
-      "description": "Consensus client methods",
-      "name": "consensus_client_methods",
-      "schema": {
-        "items": {
-          "type": "string"
-        },
-        "type": "array"
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/engine_exchangeCapabilities.json",
+  "properties": {
+    "consensus_client_methods": {
+      "items": {
+        "type": "string"
       },
-      "required": true,
-      "deprecated": false
+      "type": "array",
+      "title": "consensus_client_methods",
+      "description": "Consensus client methods"
     }
+  },
+  "type": "object",
+  "required": [
+    "consensus_client_methods"
   ],
-  "defs": {}
+  "title": "engine_exchangeCapabilities",
+  "description": "Exchanges list of supported Engine API methods"
 }

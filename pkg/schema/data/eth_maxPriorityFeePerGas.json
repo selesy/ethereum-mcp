@@ -1,7 +1,8 @@
 {
-  "summary": "Returns the current maxPriorityFeePerGas per gas in wei.",
-  "description": "",
-  "name": "eth_maxPriorityFeePerGas",
-  "params": [],
-  "defs": null
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/eth_maxPriorityFeePerGas.json",
+  "properties": {},
+  "type": "object",
+  "title": "eth_maxPriorityFeePerGas",
+  "description": "Returns the current maxPriorityFeePerGas per gas in wei."
 }

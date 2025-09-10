@@ -1,40 +1,7 @@
 {
-  "summary": "Returns the value from a storage position at a given address.",
-  "description": "",
-  "name": "eth_getStorageAt",
-  "params": [
-    {
-      "summary": "",
-      "description": "Address",
-      "name": "address",
-      "schema": {
-        "$ref": "#/$defs/address"
-      },
-      "required": true,
-      "deprecated": false
-    },
-    {
-      "summary": "",
-      "description": "Storage slot",
-      "name": "storage_slot",
-      "schema": {
-        "$ref": "#/$defs/bytesMax32"
-      },
-      "required": true,
-      "deprecated": false
-    },
-    {
-      "summary": "",
-      "description": "Block",
-      "name": "block",
-      "schema": {
-        "$ref": "#/$defs/BlockNumberOrTagOrHash"
-      },
-      "required": true,
-      "deprecated": false
-    }
-  ],
-  "defs": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/eth_getStorageAt.json",
+  "$defs": {
     "BlockNumberOrTagOrHash": {
       "anyOf": [
         {
@@ -84,5 +51,30 @@
       "pattern": "^0x(0|[1-9a-f][0-9a-f]*)$",
       "title": "hex encoded unsigned integer"
     }
-  }
+  },
+  "properties": {
+    "address": {
+      "$ref": "#/$defs/address",
+      "title": "address",
+      "description": "Address"
+    },
+    "storage_slot": {
+      "$ref": "#/$defs/bytesMax32",
+      "title": "storage_slot",
+      "description": "Storage slot"
+    },
+    "block": {
+      "$ref": "#/$defs/BlockNumberOrTagOrHash",
+      "title": "block",
+      "description": "Block"
+    }
+  },
+  "type": "object",
+  "required": [
+    "address",
+    "storage_slot",
+    "block"
+  ],
+  "title": "eth_getStorageAt",
+  "description": "Returns the value from a storage position at a given address."
 }
