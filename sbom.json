@@ -140,7 +140,6 @@
   ],
   "Binaries": [
     {
-      "Path": "/home/smoyer1/git/selesy/ethereum-mcp/ethereum-mcp.so",
       "PackagePath": "command-line-arguments",
       "ModulePath": "github.com/selesy/ethereum-mcp",
       "ModuleRefs": [
