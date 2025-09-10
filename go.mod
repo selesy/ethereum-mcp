@@ -7,10 +7,7 @@ tool (
 	golang.org/x/vuln/cmd/govulncheck
 )
 
-require (
-	github.com/lmittmann/tint v1.1.2
-	github.com/mark3labs/mcp-go v0.39.0
-)
+require github.com/mark3labs/mcp-go v0.39.0
 
 require (
 	github.com/bahlo/generic-list-go v0.2.0 // indirect
@@ -18,9 +15,9 @@ require (
 	github.com/dave/jennifer v1.7.1 // indirect
 	github.com/google/go-github/v74 v74.0.0 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
-	github.com/google/uuid v1.6.0 // indirect
 	github.com/invopop/jsonschema v0.13.0 // indirect
 	github.com/invopop/yaml v0.3.1 // indirect
+	github.com/lmittmann/tint v1.1.2 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/selesy/ethereum-mcp/gen v0.4.0 // indirect
 	github.com/selesy/jsonschema v0.14.0-rc1 // indirect
