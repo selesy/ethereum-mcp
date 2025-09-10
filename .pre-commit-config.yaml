@@ -30,6 +30,14 @@ repos:
     - id: go-test-mod
     - id: golangci-lint-mod
     - id: my-cmd-repo
+      name: go-build
+      alias: go-build
+      args: [go, build, -o, ethereum-mcp.so, ./main.go] # *.so is in .gitignore
+    - id: my-cmd-repo
+      name: lichen
+      alias: lichen
+      args: ["bash", "-c", "./scripts/lichen.sh"]
+    - id: my-cmd-repo
       alias: govulncheck
       name: govulncheck
       args: ["bash", "-c", "go tool golang.org/x/vuln/cmd/govulncheck ./..."]
