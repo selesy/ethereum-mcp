@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/debug_traceBlockByHash.json",
+  "properties": {
+    "blockhash": {
+      "$ref": "../../schemas.yaml#/$defs/BLOCK_HASH",
+      "title": "blockhash",
+      "description": "blockHash"
+    },
+    "options": {
+      "$ref": "../../schemas.yaml#/$defs/TraceOptions",
+      "title": "options",
+      "description": "options"
+    }
+  },
+  "type": "object",
+  "title": "debug_traceBlockByHash",
+  "description": "The traceBlockByHash method returns the full trace of a block."
+}

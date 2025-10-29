@@ -117,6 +117,16 @@ var EngineGetPayloadBodiesByHashV1Schema json.RawMessage
 //go:embed data/engine_getPayloadBodiesByRangeV1.json
 var EngineGetPayloadBodiesByRangeV1Schema json.RawMessage
 
+// EngineNewPayloadV5Schema runs execution payload validation
+//
+//go:embed data/engine_newPayloadV5.json
+var EngineNewPayloadV5Schema json.RawMessage
+
+// EngineGetPayloadV6Schema obtains execution payload from payload build process
+//
+//go:embed data/engine_getPayloadV6.json
+var EngineGetPayloadV6Schema json.RawMessage
+
 // EngineExchangeTransitionConfigurationV1Schema exchanges transition configuration
 //
 //go:embed data/engine_exchangeTransitionConfigurationV1.json
@@ -322,6 +332,31 @@ var EthGetTransactionByBlockNumberAndIndexSchema json.RawMessage
 //go:embed data/eth_getTransactionReceipt.json
 var EthGetTransactionReceiptSchema json.RawMessage
 
+// DebugStorageRangeAtSchema returns the storage range at a given block hash and transaction index
+//
+//go:embed data/debug_storageRangeAt.json
+var DebugStorageRangeAtSchema json.RawMessage
+
+// DebugTraceBlockSchema the traceBlock method returns the full trace of a block.
+//
+//go:embed data/debug_traceBlock.json
+var DebugTraceBlockSchema json.RawMessage
+
+// DebugTraceBlockByHashSchema the traceBlockByHash method returns the full trace of a block.
+//
+//go:embed data/debug_traceBlockByHash.json
+var DebugTraceBlockByHashSchema json.RawMessage
+
+// DebugTraceBlockByNumberSchema the traceBlockByNumber method returns the full trace of a block.
+//
+//go:embed data/debug_traceBlockByNumber.json
+var DebugTraceBlockByNumberSchema json.RawMessage
+
+// DebugTraceTransactionSchema the traceTransaction method returns the full trace of a transaction.
+//
+//go:embed data/debug_traceTransaction.json
+var DebugTraceTransactionSchema json.RawMessage
+
 // Schemas returns a map relating method names to the associated JSONSchema.
 func Schemas() map[string]json.RawMessage {
 	return map[string]json.RawMessage{
@@ -330,6 +365,11 @@ func Schemas() map[string]json.RawMessage {
 		"debug_getRawHeader":                       DebugGetRawHeaderSchema,
 		"debug_getRawReceipts":                     DebugGetRawReceiptsSchema,
 		"debug_getRawTransaction":                  DebugGetRawTransactionSchema,
+		"debug_storageRangeAt":                     DebugStorageRangeAtSchema,
+		"debug_traceBlock":                         DebugTraceBlockSchema,
+		"debug_traceBlockByHash":                   DebugTraceBlockByHashSchema,
+		"debug_traceBlockByNumber":                 DebugTraceBlockByNumberSchema,
+		"debug_traceTransaction":                   DebugTraceTransactionSchema,
 		"engine_exchangeCapabilities":              EngineExchangeCapabilitiesSchema,
 		"engine_exchangeTransitionConfigurationV1": EngineExchangeTransitionConfigurationV1Schema,
 		"engine_forkchoiceUpdatedV1":               EngineForkchoiceUpdatedV1Schema,
@@ -344,10 +384,12 @@ func Schemas() map[string]json.RawMessage {
 		"engine_getPayloadV3":                      EngineGetPayloadV3Schema,
 		"engine_getPayloadV4":                      EngineGetPayloadV4Schema,
 		"engine_getPayloadV5":                      EngineGetPayloadV5Schema,
+		"engine_getPayloadV6":                      EngineGetPayloadV6Schema,
 		"engine_newPayloadV1":                      EngineNewPayloadV1Schema,
 		"engine_newPayloadV2":                      EngineNewPayloadV2Schema,
 		"engine_newPayloadV3":                      EngineNewPayloadV3Schema,
 		"engine_newPayloadV4":                      EngineNewPayloadV4Schema,
+		"engine_newPayloadV5":                      EngineNewPayloadV5Schema,
 		"eth_accounts":                             EthAccountsSchema,
 		"eth_blobBaseFee":                          EthBlobBaseFeeSchema,
 		"eth_blockNumber":                          EthBlockNumberSchema,

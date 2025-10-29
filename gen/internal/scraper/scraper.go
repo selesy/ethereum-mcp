@@ -6,6 +6,7 @@ import (
 	"context"
 	"log/slog"
 	"os"
+	"path/filepath"
 
 	"github.com/google/go-github/v74/github"
 
@@ -46,10 +47,75 @@ func (s *Scraper) Run(ctx context.Context) ([]openrpc.Method, error) {
 		return nil, err
 	}
 
+	localMethodSrc, err := s.LocalMethodSource(ctx)
+	if err != nil {
+		return nil, err
+	}
+	s.log.InfoContext(ctx, "Local method files retrieved", "methods", len(localMethodSrc))
+	methodSrc = append(methodSrc, localMethodSrc...)
+
 	schemaSrc, err := s.SchemaSource(ctx)
 	if err != nil {
 		return nil, err
 	}
 
 	return s.MergeMethodsAndDefinitions(ctx, methodSrc, schemaSrc)
+}
+
+// LocalMethodSource returns the OpenRPC source for all methods defined by the
+// local OpenRPC specifications.
+func (s *Scraper) LocalMethodSource(ctx context.Context) ([]string, error) {
+	root, err := s.findProjectRoot()
+	if err != nil {
+		return nil, err
+	}
+
+	dir := filepath.Join(root, "gen", "internal", "openrpc", "data")
+	files, err := os.ReadDir(dir)
+	if err != nil {
+		return nil, err
+	}
+
+	var sources []string
+	for _, file := range files {
+		if file.IsDir() {
+			continue
+		}
+
+		if filepath.Ext(file.Name()) != ".yaml" {
+			continue
+		}
+
+		path := filepath.Join(dir, file.Name())
+		path = filepath.Clean(path)
+		s.log.DebugContext(ctx, "Reading local method file", "path", path)
+
+		data, err := os.ReadFile(path)
+		if err != nil {
+			return nil, err
+		}
+		s.log.DebugContext(ctx, "Read local method file", "path", path)
+		sources = append(sources, string(data))
+	}
+
+	return sources, nil
+}
+
+func (s *Scraper) findProjectRoot() (string, error) {
+	dir, err := os.Getwd()
+	if err != nil {
+		return "", err
+	}
+
+	for {
+		if _, err := os.Stat(filepath.Join(dir, "go.mod")); err == nil {
+			return dir, nil
+		}
+
+		if dir == filepath.Dir(dir) {
+			return "", os.ErrNotExist
+		}
+
+		dir = filepath.Dir(dir)
+	}
 }

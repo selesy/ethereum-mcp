@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/engine_newPayloadV5.json",
+  "$defs": {
+    "ExecutionPayloadV4": {
+      "properties": {
+        "baseFeePerGas": {
+          "$ref": "#/$defs/ExecutionPayloadV3/properties/baseFeePerGas"
+        },
+        "blobGasUsed": {
+          "$ref": "#/$defs/ExecutionPayloadV3/properties/blobGasUsed"
+        },
+        "blockAccessList": {
+          "$ref": "#/$defs/bytes",
+          "title": "Block access list"
+        },
+        "blockHash": {
+          "$ref": "#/$defs/ExecutionPayloadV3/properties/blockHash"
+        },
+        "blockNumber": {
+          "$ref": "#/$defs/ExecutionPayloadV3/properties/blockNumber"
+        },
+        "excessBlobGas": {
+          "$ref": "#/$defs/ExecutionPayloadV3/properties/excessBlobGas"
+        },
+        "extraData": {
+          "$ref": "#/$defs/ExecutionPayloadV3/properties/extraData"
+        },
+        "feeRecipient": {
+          "$ref": "#/$defs/ExecutionPayloadV3/properties/feeRecipient"
+        },
+        "gasLimit": {
+          "$ref": "#/$defs/ExecutionPayloadV3/properties/gasLimit"
+        },
+        "gasUsed": {
+          "$ref": "#/$defs/ExecutionPayloadV3/properties/gasUsed"
+        },
+        "logsBloom": {
+          "$ref": "#/$defs/ExecutionPayloadV3/properties/logsBloom"
+        },
+        "parentHash": {
+          "$ref": "#/$defs/ExecutionPayloadV3/properties/parentHash"
+        },
+        "prevRandao": {
+          "$ref": "#/$defs/ExecutionPayloadV3/properties/prevRandao"
+        },
+        "receiptsRoot": {
+          "$ref": "#/$defs/ExecutionPayloadV3/properties/receiptsRoot"
+        },
+        "stateRoot": {
+          "$ref": "#/$defs/ExecutionPayloadV3/properties/stateRoot"
+        },
+        "timestamp": {
+          "$ref": "#/$defs/ExecutionPayloadV3/properties/timestamp"
+        },
+        "transactions": {
+          "$ref": "#/$defs/ExecutionPayloadV3/properties/transactions"
+        },
+        "withdrawals": {
+          "$ref": "#/$defs/ExecutionPayloadV3/properties/withdrawals"
+        }
+      },
+      "type": "object",
+      "required": [
+        "parentHash",
+        "feeRecipient",
+        "stateRoot",
+        "receiptsRoot",
+        "logsBloom",
+        "prevRandao",
+        "blockNumber",
+        "gasLimit",
+        "gasUsed",
+        "timestamp",
+        "extraData",
+        "baseFeePerGas",
+        "blockHash",
+        "transactions",
+        "withdrawals",
+        "blobGasUsed",
+        "excessBlobGas",
+        "blockAccessList"
+      ],
+      "title": "Execution payload object V4"
+    },
+    "baseFeePerGas": null,
+    "blobGasUsed": null,
+    "blockHash": null,
+    "blockNumber": null,
+    "bytes": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]*$",
+      "title": "hex encoded bytes"
+    },
+    "excessBlobGas": null,
+    "extraData": null,
+    "feeRecipient": null,
+    "gasLimit": null,
+    "gasUsed": null,
+    "hash32": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$",
+      "title": "32 byte hex value"
+    },
+    "logsBloom": null,
+    "parentHash": null,
+    "prevRandao": null,
+    "receiptsRoot": null,
+    "stateRoot": null,
+    "timestamp": null,
+    "transactions": null,
+    "withdrawals": null
+  },
+  "properties": {
+    "execution_payload": {
+      "$ref": "#/$defs/ExecutionPayloadV4",
+      "title": "execution_payload",
+      "description": "Execution payload"
+    },
+    "expected_blob_versioned_hashes": {
+      "items": {
+        "$ref": "#/$defs/hash32"
+      },
+      "type": "array",
+      "title": "expected_blob_versioned_hashes",
+      "description": "Expected blob versioned hashes"
+    },
+    "parent_beacon_block_root": {
+      "$ref": "#/$defs/hash32",
+      "title": "parent_beacon_block_root",
+      "description": "Parent beacon block root"
+    },
+    "execution_requests": {
+      "items": {
+        "$ref": "#/$defs/bytes"
+      },
+      "type": "array",
+      "title": "execution_requests",
+      "description": "Execution requests"
+    }
+  },
+  "type": "object",
+  "required": [
+    "execution_payload",
+    "expected_blob_versioned_hashes",
+    "parent_beacon_block_root",
+    "execution_requests"
+  ],
+  "title": "engine_newPayloadV5",
+  "description": "Runs execution payload validation"
+}

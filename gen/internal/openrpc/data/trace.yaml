@@ -1,0 +1,80 @@
+- name: debug_storageRangeAt
+  summary: Returns the storage range at a given block hash and transaction index
+  params:
+    - name: blockHash
+      schema:
+        $ref: '../../schemas.yaml#/components/schemas/BLOCK_HASH'
+    - name: txIndex
+      schema:
+        type: integer
+    - name: address
+      schema:
+        $ref: '../../schemas.yaml#/components/schemas/ADDRESS'
+    - name: startKey
+      schema:
+        $ref: '../../schemas.yaml#/components/schemas/HASH'
+    - name: maxResult
+      schema:
+        type: integer
+  result:
+    name: storage
+    schema:
+      $ref: '../../schemas.yaml#/components/schemas/StorageRange'
+- name: debug_traceBlock
+  summary: The traceBlock method returns the full trace of a block.
+  params:
+    - name: blockRlp
+      schema:
+        $ref: '../../schemas.yaml#/components/schemas/BYTES'
+    - name: options
+      schema:
+        $ref: '../../schemas.yaml#/components/schemas/TraceOptions'
+  result:
+    name: trace
+    schema:
+      type: array
+      items:
+        $ref: '../../schemas.yaml#/components/schemas/BlockTrace'
+- name: debug_traceBlockByHash
+  summary: The traceBlockByHash method returns the full trace of a block.
+  params:
+    - name: blockHash
+      schema:
+        $ref: '../../schemas.yaml#/components/schemas/BLOCK_HASH'
+    - name: options
+      schema:
+        $ref: '../../schemas.yaml#/components/schemas/TraceOptions'
+  result:
+    name: trace
+    schema:
+      type: array
+      items:
+        $ref: '../../schemas.yaml#/components/schemas/BlockTrace'
+- name: debug_traceBlockByNumber
+  summary: The traceBlockByNumber method returns the full trace of a block.
+  params:
+    - name: blockNumber
+      schema:
+        $ref: '../../schemas.yaml#/components/schemas/BLOCK_NUMBER'
+    - name: options
+      schema:
+        $ref: '../../schemas.yaml#/components/schemas/TraceOptions'
+  result:
+    name: trace
+    schema:
+      type: array
+      items:
+        $ref: '../../schemas.yaml#/components/schemas/BlockTrace'
+- name: debug_traceTransaction
+  summary: The traceTransaction method returns the full trace of a transaction.
+  params:
+    - name: txHash
+      schema:
+        $ref: '../../schemas.yaml#/components/schemas/TX_HASH'
+    - name: options
+      schema:
+        $ref: '../../schemas.yaml#/components/schemas/TraceOptions'
+  result:
+    name: trace
+    schema:
+      $ref: '../../schemas.yaml#/components/schemas/TransactionTrace'

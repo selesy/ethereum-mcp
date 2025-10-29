@@ -25,6 +25,26 @@ func ParamsSpecs() map[string]ParamsSpec {
 			order:    []string{"transaction_hash"},
 			required: map[string]struct{}{"transaction_hash": struct{}{}},
 		},
+		"debug_storageRangeAt": {
+			order:    []string{"blockhash", "txindex", "address", "startkey", "maxresult"},
+			required: map[string]struct{}{},
+		},
+		"debug_traceBlock": {
+			order:    []string{"blockrlp", "options"},
+			required: map[string]struct{}{},
+		},
+		"debug_traceBlockByHash": {
+			order:    []string{"blockhash", "options"},
+			required: map[string]struct{}{},
+		},
+		"debug_traceBlockByNumber": {
+			order:    []string{"blocknumber", "options"},
+			required: map[string]struct{}{},
+		},
+		"debug_traceTransaction": {
+			order:    []string{"txhash", "options"},
+			required: map[string]struct{}{},
+		},
 		"engine_exchangeCapabilities": {
 			order:    []string{"consensus_client_methods"},
 			required: map[string]struct{}{"consensus_client_methods": struct{}{}},
@@ -84,6 +104,10 @@ func ParamsSpecs() map[string]ParamsSpec {
 			order:    []string{"payload_id"},
 			required: map[string]struct{}{"payload_id": struct{}{}},
 		},
+		"engine_getPayloadV6": {
+			order:    []string{"payload_id"},
+			required: map[string]struct{}{"payload_id": struct{}{}},
+		},
 		"engine_newPayloadV1": {
 			order:    []string{"execution_payload"},
 			required: map[string]struct{}{"execution_payload": struct{}{}},
@@ -107,6 +131,15 @@ func ParamsSpecs() map[string]ParamsSpec {
 				"execution_requests":              struct{}{},
 				"expected_blob_versioned_hashes":  struct{}{},
 				"root_of_the_parent_beacon_block": struct{}{},
+			},
+		},
+		"engine_newPayloadV5": {
+			order: []string{"execution_payload", "expected_blob_versioned_hashes", "parent_beacon_block_root", "execution_requests"},
+			required: map[string]struct{}{
+				"execution_payload":              struct{}{},
+				"execution_requests":             struct{}{},
+				"expected_blob_versioned_hashes": struct{}{},
+				"parent_beacon_block_root":       struct{}{},
 			},
 		},
 		"eth_accounts": {
