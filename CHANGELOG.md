@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.5.0](https://github.com/selesy/ethereum-mcp/compare/v0.4.1...v0.5.0) (2025-11-06)
+
+
+### Features
+
+* **gen:** generate "non-standard" methods from local OpenRPC ([7ab1920](https://github.com/selesy/ethereum-mcp/commit/7ab1920b047a83ca74588b2723829c3e6e6f407d))
+* **gen:** include "non-standard" type definitions from local OpenRPC ([47d487a](https://github.com/selesy/ethereum-mcp/commit/47d487a049486afa4d6813a517c5f48fa194a105))
+* **proxy:** Add ParamSpec and generated values ([3268a51](https://github.com/selesy/ethereum-mcp/commit/3268a51873be69dd19afcbf9829ea8761be614e5))
+
 ## [0.4.1](https://github.com/selesy/ethereum-mcp/compare/v0.4.0...v0.4.1) (2025-09-10)
 
 
