@@ -47,7 +47,7 @@ func (s *Scraper) Run(ctx context.Context) ([]openrpc.Method, error) {
 		return nil, err
 	}
 
-	localMethodSrc, err := s.LocalMethodSource(ctx)
+	localMethodSrc, err := s.LocalSource(ctx, "_schemas.yaml")
 	if err != nil {
 		return nil, err
 	}
@@ -59,12 +59,19 @@ func (s *Scraper) Run(ctx context.Context) ([]openrpc.Method, error) {
 		return nil, err
 	}
 
+	localSchemaSrc, err := s.LocalSource(ctx, "trace.yaml")
+	if err != nil {
+		return nil, err
+	}
+	s.log.InfoContext(ctx, "Local schema files retrieved", "schemas", len(localSchemaSrc))
+	schemaSrc = append(schemaSrc, localSchemaSrc...)
+
 	return s.MergeMethodsAndDefinitions(ctx, methodSrc, schemaSrc)
 }
 
-// LocalMethodSource returns the OpenRPC source for all methods defined by the
+// LocalSource returns the OpenRPC source for all methods defined by the
 // local OpenRPC specifications.
-func (s *Scraper) LocalMethodSource(ctx context.Context) ([]string, error) {
+func (s *Scraper) LocalSource(ctx context.Context, filter string) ([]string, error) {
 	root, err := s.findProjectRoot()
 	if err != nil {
 		return nil, err
@@ -83,6 +90,14 @@ func (s *Scraper) LocalMethodSource(ctx context.Context) ([]string, error) {
 		}
 
 		if filepath.Ext(file.Name()) != ".yaml" {
+			continue
+		}
+
+		if filter == "trace.yaml" && file.Name() == "trace.yaml" {
+			continue
+		}
+
+		if filter == "_schemas.yaml" && file.Name() != "trace.yaml" {
 			continue
 		}
 

@@ -1,6 +1,8 @@
 module github.com/selesy/ethereum-mcp/gen
 
-go 1.24.4
+go 1.24
+
+toolchain go1.25.4
 
 require (
 	github.com/dave/jennifer v1.7.1
