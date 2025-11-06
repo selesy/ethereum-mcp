@@ -18,5 +18,5 @@ jobs:
         with:
           token: ${{ secrets.RELEASE_PLEASE_PAT }}
           release-type: go
-          config-file: release-please-config.yaml
+          config-file: .github/release-please-config.yaml
           manifest-file: .release-please-manifest.json
