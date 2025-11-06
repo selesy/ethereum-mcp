@@ -6,10 +6,10 @@ on:
 jobs:
   pre-commit:
     runs-on: ubuntu-latest
-    # Define custom ASDF installation paths to avoid conflicts in the home directory
+    # CORRECTED: Use standard $RUNNER_TEMP env var, not the ${{ runner.temp }} context
     env:
-      ASDF_DIR: ${{ runner.temp }}/asdf-core
-      ASDF_DATA_DIR: ${{ runner.temp }}/asdf-data
+      ASDF_DIR: $RUNNER_TEMP/asdf-core
+      ASDF_DATA_DIR: $RUNNER_TEMP/asdf-data
     steps:
       - uses: actions/checkout@v3
 
@@ -17,25 +17,22 @@ jobs:
       - name: Cache ASDF Tool Versions
         uses: actions/cache@v4
         with:
-          # Cache only the large installed tools in the custom data directory
+          # Now use the new environment variable in the path
           path: ${{ env.ASDF_DATA_DIR }}/installs
           key: ${{ runner.os }}-asdf-${{ hashFiles('.tool-versions') }}
           restore-keys: |
             ${{ runner.os }}-asdf-
 
       - name: Setup ASDF
-        # This uses the ASDF_DIR variable to clone the ASDF core
         uses: asdf-vm/actions/setup@v1
 
       - name: Install ASDF Runtimes
-        # This uses the ASDF_DATA_DIR variable to check for cached installs
         uses: asdf-vm/actions/install@v4
 
       # --- 2. Pre-commit Caching and Execution ---
       - name: Cache Pre-commit Hooks
         uses: actions/cache@v4
         with:
-          # Cache the standard pre-commit environment directory
           path: ~/.cache/pre-commit
           key: ${{ runner.os }}-pre-commit-${{ hashFiles('.pre-commit-config.yaml') }}
           restore-keys: |
