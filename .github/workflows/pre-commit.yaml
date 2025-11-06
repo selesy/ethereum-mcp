@@ -6,39 +6,37 @@ on:
 jobs:
   pre-commit:
     runs-on: ubuntu-latest
+    # Define custom ASDF installation paths to avoid conflicts in the home directory
+    env:
+      ASDF_DIR: ${{ runner.temp }}/asdf-core
+      ASDF_DATA_DIR: ${{ runner.temp }}/asdf-data
     steps:
       - uses: actions/checkout@v3
+
+      # --- 1. ASDF Caching and Installation ---
       - name: Cache ASDF Tool Versions
         uses: actions/cache@v4
-        id: cache-asdf
         with:
-          path: ~/.asdf/installs
+          # Cache only the large installed tools in the custom data directory
+          path: ${{ env.ASDF_DATA_DIR }}/installs
           key: ${{ runner.os }}-asdf-${{ hashFiles('.tool-versions') }}
           restore-keys: |
             ${{ runner.os }}-asdf-
-      - name: Cleanup core .asdf directory if restored by cache
-        if: steps.cache-asdf.outputs.cache-hit == 'true'
-        run: |
-          # The cache step restores ~/.asdf/installs, which may restore the parent ~/.asdf directory
-          # if a previous, incorrect run cached the whole thing.
-          # We delete the core ASDF directory to prevent the 'directory already exists' error.
-          rm -rf ~/.asdf/
 
       - name: Setup ASDF
-        # This action now successfully clones ASDF core into the cleaned/missing ~/.asdf directory
+        # This uses the ASDF_DIR variable to clone the ASDF core
         uses: asdf-vm/actions/setup@v1
 
       - name: Install ASDF Runtimes
-        # This action now installs runtimes, but sees the cached files in ~/.asdf/installs
-        # and skips the slow downloads/compilations.
+        # This uses the ASDF_DATA_DIR variable to check for cached installs
         uses: asdf-vm/actions/install@v4
 
+      # --- 2. Pre-commit Caching and Execution ---
       - name: Cache Pre-commit Hooks
         uses: actions/cache@v4
         with:
-          # Cache the pre-commit environments
+          # Cache the standard pre-commit environment directory
           path: ~/.cache/pre-commit
-          # Key based on the runner OS and the configuration file hash
           key: ${{ runner.os }}-pre-commit-${{ hashFiles('.pre-commit-config.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pre-commit-
