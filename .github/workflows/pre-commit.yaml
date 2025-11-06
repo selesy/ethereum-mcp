@@ -8,7 +8,43 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: asdf-vm/actions/install@v4
-      - uses: pre-commit/action@v3.0.1
+
+      # --- 1. ASDF Caching and Installation ---
+      - name: 💾 Cache ASDF Tool Versions
+        uses: actions/cache@v4
+        id: cache-asdf
+        with:
+          # Cache the directory where asdf installs tools
+          path: ~/.asdf/installs
+          # Key is based on OS and the content of .tool-versions
+          key: ${{ runner.os }}-asdf-${{ hashFiles('.tool-versions') }}
+          restore-keys: |
+            ${{ runner.os }}-asdf-
+
+      # Setup asdf itself (it's fast)
+      - name: ⚙️ Setup ASDF
+        uses: asdf-vm/actions/setup@v1
+
+      # Install runtimes (only downloads if not restored by cache)
+      - name: 🔨 Install ASDF Runtimes
+        uses: asdf-vm/actions/install@v4
+
+      # --- 2. Pre-commit Caching and Execution ---
+      - name: 💾 Cache Pre-commit Hooks
+        uses: actions/cache@v4
+        with:
+          # Cache the directory where pre-commit installs its environments
+          path: ~/.cache/pre-commit
+          # Key is based on OS and the content of the pre-commit config
+          key: ${{ runner.os }}-pre-commit-${{ hashFiles('.pre-commit-config.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pre-commit-
+
+      # Run pre-commit (will use cached environments if available)
+      - name: ✅ Run pre-commit hooks
+        uses: pre-commit/action@v3.0.1
+        # It's generally not necessary to pass GITHUB_TOKEN to pre-commit/action
+        # unless one of your hooks specifically needs it for network access.
+        # If it's not needed by a hook, you can remove the 'env' block.
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_PLEASE_PAT }}
