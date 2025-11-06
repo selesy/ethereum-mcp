@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/debug_traceTransaction.json",
+  "properties": {
+    "txhash": {
+      "$ref": "../../schemas.yaml#/$defs/TX_HASH",
+      "title": "txhash",
+      "description": "txHash"
+    },
+    "options": {
+      "$ref": "../../schemas.yaml#/$defs/TraceOptions",
+      "title": "options",
+      "description": "options"
+    }
+  },
+  "type": "object",
+  "title": "debug_traceTransaction",
+  "description": "The traceTransaction method returns the full trace of a transaction."
+}

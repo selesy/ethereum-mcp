@@ -73,6 +73,12 @@ var EngineGetPayloadBodiesByHashV1Tool = mcp.NewToolWithRawSchema("engine_getPay
 // EngineGetPayloadBodiesByRangeV1Tool is an mcp.Tool that given a range of block numbers returns bodies of the corresponding execution payloads
 var EngineGetPayloadBodiesByRangeV1Tool = mcp.NewToolWithRawSchema("engine_getPayloadBodiesByRangeV1", "Given a range of block numbers returns bodies of the corresponding execution payloads", schema.EngineGetPayloadBodiesByRangeV1Schema)
 
+// EngineNewPayloadV5Tool is an mcp.Tool that runs execution payload validation
+var EngineNewPayloadV5Tool = mcp.NewToolWithRawSchema("engine_newPayloadV5", "Runs execution payload validation", schema.EngineNewPayloadV5Schema)
+
+// EngineGetPayloadV6Tool is an mcp.Tool that obtains execution payload from payload build process
+var EngineGetPayloadV6Tool = mcp.NewToolWithRawSchema("engine_getPayloadV6", "Obtains execution payload from payload build process", schema.EngineGetPayloadV6Schema)
+
 // EngineExchangeTransitionConfigurationV1Tool is an mcp.Tool that exchanges transition configuration
 var EngineExchangeTransitionConfigurationV1Tool = mcp.NewToolWithRawSchema("engine_exchangeTransitionConfigurationV1", "Exchanges transition configuration", schema.EngineExchangeTransitionConfigurationV1Schema)
 
@@ -196,6 +202,21 @@ var EthGetTransactionByBlockNumberAndIndexTool = mcp.NewToolWithRawSchema("eth_g
 // EthGetTransactionReceiptTool is an mcp.Tool that returns the receipt of a transaction by transaction hash.
 var EthGetTransactionReceiptTool = mcp.NewToolWithRawSchema("eth_getTransactionReceipt", "Returns the receipt of a transaction by transaction hash.", schema.EthGetTransactionReceiptSchema)
 
+// DebugStorageRangeAtTool is an mcp.Tool that returns the storage range at a given block hash and transaction index
+var DebugStorageRangeAtTool = mcp.NewToolWithRawSchema("debug_storageRangeAt", "Returns the storage range at a given block hash and transaction index", schema.DebugStorageRangeAtSchema)
+
+// DebugTraceBlockTool is an mcp.Tool that the traceBlock method returns the full trace of a block.
+var DebugTraceBlockTool = mcp.NewToolWithRawSchema("debug_traceBlock", "The traceBlock method returns the full trace of a block.", schema.DebugTraceBlockSchema)
+
+// DebugTraceBlockByHashTool is an mcp.Tool that the traceBlockByHash method returns the full trace of a block.
+var DebugTraceBlockByHashTool = mcp.NewToolWithRawSchema("debug_traceBlockByHash", "The traceBlockByHash method returns the full trace of a block.", schema.DebugTraceBlockByHashSchema)
+
+// DebugTraceBlockByNumberTool is an mcp.Tool that the traceBlockByNumber method returns the full trace of a block.
+var DebugTraceBlockByNumberTool = mcp.NewToolWithRawSchema("debug_traceBlockByNumber", "The traceBlockByNumber method returns the full trace of a block.", schema.DebugTraceBlockByNumberSchema)
+
+// DebugTraceTransactionTool is an mcp.Tool that the traceTransaction method returns the full trace of a transaction.
+var DebugTraceTransactionTool = mcp.NewToolWithRawSchema("debug_traceTransaction", "The traceTransaction method returns the full trace of a transaction.", schema.DebugTraceTransactionSchema)
+
 // Tools returns a map relating method names to the associated tool.
 func Tools() map[string]mcp.Tool {
 	return map[string]mcp.Tool{
@@ -204,6 +225,11 @@ func Tools() map[string]mcp.Tool {
 		"debug_getRawHeader":                       DebugGetRawHeaderTool,
 		"debug_getRawReceipts":                     DebugGetRawReceiptsTool,
 		"debug_getRawTransaction":                  DebugGetRawTransactionTool,
+		"debug_storageRangeAt":                     DebugStorageRangeAtTool,
+		"debug_traceBlock":                         DebugTraceBlockTool,
+		"debug_traceBlockByHash":                   DebugTraceBlockByHashTool,
+		"debug_traceBlockByNumber":                 DebugTraceBlockByNumberTool,
+		"debug_traceTransaction":                   DebugTraceTransactionTool,
 		"engine_exchangeCapabilities":              EngineExchangeCapabilitiesTool,
 		"engine_exchangeTransitionConfigurationV1": EngineExchangeTransitionConfigurationV1Tool,
 		"engine_forkchoiceUpdatedV1":               EngineForkchoiceUpdatedV1Tool,
@@ -218,10 +244,12 @@ func Tools() map[string]mcp.Tool {
 		"engine_getPayloadV3":                      EngineGetPayloadV3Tool,
 		"engine_getPayloadV4":                      EngineGetPayloadV4Tool,
 		"engine_getPayloadV5":                      EngineGetPayloadV5Tool,
+		"engine_getPayloadV6":                      EngineGetPayloadV6Tool,
 		"engine_newPayloadV1":                      EngineNewPayloadV1Tool,
 		"engine_newPayloadV2":                      EngineNewPayloadV2Tool,
 		"engine_newPayloadV3":                      EngineNewPayloadV3Tool,
 		"engine_newPayloadV4":                      EngineNewPayloadV4Tool,
+		"engine_newPayloadV5":                      EngineNewPayloadV5Tool,
 		"eth_accounts":                             EthAccountsTool,
 		"eth_blobBaseFee":                          EthBlobBaseFeeTool,
 		"eth_blockNumber":                          EthBlockNumberTool,

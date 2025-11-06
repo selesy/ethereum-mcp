@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/debug_storageRangeAt.json",
+  "properties": {
+    "blockhash": {
+      "$ref": "../../schemas.yaml#/$defs/BLOCK_HASH",
+      "title": "blockhash",
+      "description": "blockHash"
+    },
+    "txindex": {
+      "type": "integer",
+      "title": "txindex",
+      "description": "txIndex"
+    },
+    "address": {
+      "$ref": "../../schemas.yaml#/$defs/ADDRESS",
+      "title": "address",
+      "description": "address"
+    },
+    "startkey": {
+      "$ref": "../../schemas.yaml#/$defs/HASH",
+      "title": "startkey",
+      "description": "startKey"
+    },
+    "maxresult": {
+      "type": "integer",
+      "title": "maxresult",
+      "description": "maxResult"
+    }
+  },
+  "type": "object",
+  "title": "debug_storageRangeAt",
+  "description": "Returns the storage range at a given block hash and transaction index"
+}

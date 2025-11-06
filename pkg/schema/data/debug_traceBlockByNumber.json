@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/debug_traceBlockByNumber.json",
+  "properties": {
+    "blocknumber": {
+      "$ref": "../../schemas.yaml#/$defs/BLOCK_NUMBER",
+      "title": "blocknumber",
+      "description": "blockNumber"
+    },
+    "options": {
+      "$ref": "../../schemas.yaml#/$defs/TraceOptions",
+      "title": "options",
+      "description": "options"
+    }
+  },
+  "type": "object",
+  "title": "debug_traceBlockByNumber",
+  "description": "The traceBlockByNumber method returns the full trace of a block."
+}

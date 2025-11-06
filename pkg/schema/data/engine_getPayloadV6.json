@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/selesy/ethereum-mcp/engine_getPayloadV6.json",
+  "$defs": {
+    "bytes8": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{16}$",
+      "title": "8 hex encoded bytes"
+    }
+  },
+  "properties": {
+    "payload_id": {
+      "$ref": "#/$defs/bytes8",
+      "title": "payload_id",
+      "description": "Payload id"
+    }
+  },
+  "type": "object",
+  "required": [
+    "payload_id"
+  ],
+  "title": "engine_getPayloadV6",
+  "description": "Obtains execution payload from payload build process"
+}

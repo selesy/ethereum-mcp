@@ -3,37 +3,77 @@
   "$id": "https://github.com/selesy/ethereum-mcp/eth_newFilter.json",
   "$defs": {
     "Filter": {
-      "properties": {
-        "address": {
-          "oneOf": [
-            {
-              "type": "null",
-              "title": "Any Address"
+      "oneOf": [
+        {
+          "properties": {
+            "address": {
+              "oneOf": [
+                {
+                  "type": "null",
+                  "title": "Any Address"
+                },
+                {
+                  "$ref": "#/$defs/address",
+                  "title": "Address"
+                },
+                {
+                  "$ref": "#/$defs/addresses",
+                  "title": "Addresses"
+                }
+              ],
+              "title": "Address(es)"
             },
-            {
-              "$ref": "#/$defs/address",
-              "title": "Address"
+            "fromBlock": {
+              "$ref": "#/$defs/uint",
+              "title": "from block"
             },
-            {
-              "$ref": "#/$defs/addresses",
-              "title": "Addresses"
+            "toBlock": {
+              "$ref": "#/$defs/uint",
+              "title": "to block"
+            },
+            "topics": {
+              "$ref": "#/$defs/FilterTopics",
+              "title": "Topics"
             }
+          },
+          "type": "object",
+          "title": "Filter by block range"
+        },
+        {
+          "properties": {
+            "address": {
+              "oneOf": [
+                {
+                  "type": "null",
+                  "title": "Any Address"
+                },
+                {
+                  "$ref": "#/$defs/address",
+                  "title": "Address"
+                },
+                {
+                  "$ref": "#/$defs/addresses",
+                  "title": "Addresses"
+                }
+              ],
+              "title": "Address(es)"
+            },
+            "blockHash": {
+              "$ref": "#/$defs/hash32",
+              "title": "block hash"
+            },
+            "topics": {
+              "$ref": "#/$defs/FilterTopics",
+              "title": "Topics"
+            }
+          },
+          "type": "object",
+          "required": [
+            "blockHash"
           ],
-          "title": "Address(es)"
-        },
-        "fromBlock": {
-          "$ref": "#/$defs/uint",
-          "title": "from block"
-        },
-        "toBlock": {
-          "$ref": "#/$defs/uint",
-          "title": "to block"
-        },
-        "topics": {
-          "$ref": "#/$defs/FilterTopics",
-          "title": "Topics"
+          "title": "Filter by block hash"
         }
-      },
+      ],
       "additionalProperties": false,
       "type": "object",
       "title": "filter"
@@ -86,6 +126,11 @@
       "type": "string",
       "pattern": "^0x[0-9a-f]{64}$",
       "title": "32 hex encoded bytes"
+    },
+    "hash32": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$",
+      "title": "32 byte hex value"
     },
     "uint": {
       "type": "string",
